@@ -12,9 +12,9 @@ class Distances extends Component {
                     {
                         legs: [
                             {
-                            duration: {
-                                
-                            }
+                                duration: {
+
+                                }
                             }
                         ]
                     }
@@ -38,14 +38,14 @@ class Distances extends Component {
             let self = this
             self.setState({ events: response })
             console.log(this.state)
-
         }
     )
 }
 
     render() {
-
+      
         return (
+
             <p>The direct driving time to your destination is {this.state.events.routes[0].legs[0].duration.text}</p>
         )
     }
