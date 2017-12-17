@@ -5,9 +5,13 @@ import Distances from './distances.js'
 class App extends Component {
   render() {
     return (
-      <UserLocation />,
+      <div>
+      <UserLocation />
+      <div>
       <Distances />
-    );
+      </div>
+      </div>
+      );
   }
 }
 

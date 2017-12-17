@@ -1,3 +1,5 @@
+//get user's current location and add it to global state
+
 import React, { Component } from 'react';
 
 class UserLocation extends Component {
@@ -24,13 +26,12 @@ class UserLocation extends Component {
 
     }
 
-    //This render is begin called even before props getting updated
     render() {
         let currentState = this.state
         let latitude = currentState.events.coords.latitude;
         let longitude = currentState.events.coords.longitude;
         let gps = {latitude,longitude};
-        console.log(gps)
+        
         return (
             <p>Hi there. I have you at {latitude}, {longitude}</p>
         )

@@ -1,32 +1,52 @@
 import React, { Component } from 'react';
-let axios = require('axios');
-class Distances extends Component {
 
+let google = window.google; //needed so that React will accept global values from the <script> tag
+
+class Distances extends Component {
 
     constructor() {
         super()
-        this.state={
-
-                }
+        this.state = {
+            events: {
+                routes: [
+                    {
+                        legs: [
+                            {
+                            duration: {
+                                
+                            }
+                            }
+                        ]
+                    }
+                ]
             }
-
-
-    componentDidMount() {
-        let config = {
-            headers: {
-                'Access-Controls-Allow-Origin': '*',
-                'Access-Control-Allow-Headers':'Origin, X-Requested-With, Content-Type, Accept'
-              }
-          };
-        let self = this;
-        axios.get('https://maps.googleapis.com/maps/api/directions/json?origin=33.9900649,-84.3436881&destination=BetterCloud,Atlanta&key=AIzaSyCvOJOSQ7XA51OelcFhWXUOpMmNh0hcTRo', config)
+        }
+        var b = this.state.events.routes.push("Hi!")
+        var c = this.state.events.routes[0].legs.push("hi!")
     }
 
-    //This render is begin called even before props getting updated
+    componentDidMount() {
+
+        var directionsService = new google.maps.DirectionsService();
+
+        directionsService.route({
+            origin: "Atlanta",
+            destination: "New York",
+            travelMode: 'DRIVING'
+        }, (response, status) => {
+
+            let self = this
+            self.setState({ events: response })
+            console.log(this.state)
+
+        }
+    )
+}
+
     render() {
 
         return (
-            <p>The direct driving time to your destination is </p>
+            <p>The direct driving time to your destination is {this.state.events.routes[0].legs[0].duration.text}</p>
         )
     }
 }
