@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import _ from 'lodash';
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
 class Distances extends Component {
@@ -7,22 +7,8 @@ class Distances extends Component {
     constructor() {
         super()
         this.state = {
-            events: {
-                routes: [
-                    {
-                        legs: [
-                            {
-                                duration: {
 
-                                }
-                            }
-                        ]
-                    }
-                ]
-            }
         }
-        var b = this.state.events.routes.push("Hi!")
-        var c = this.state.events.routes[0].legs.push("hi!")
     }
 
     componentDidMount() {
@@ -37,17 +23,19 @@ class Distances extends Component {
 
             let self = this
             self.setState({ events: response })
-            console.log(this.state)
         }
     )
 }
 
     render() {
-      
+      let routes = _.get(this.state, 'event')
+      let firstRoute = _.head(routes);
+      console.log(firstRoute)
         return (
 
-            <p>The direct driving time to your destination is {this.state.events.routes[0].legs[0].duration.text}</p>
+            <p>The direct driving time to your destination is {_.get(this.state,'events.routes[0].legs[0].duration.text') || ''} </p>
         )
+        
     }
 }
 
