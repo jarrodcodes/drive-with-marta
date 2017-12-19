@@ -34,7 +34,6 @@ class Distances extends Component {
             // Create the search box and link it to the UI element.
             let input = document.getElementById('pac-input');
             let searchBox = new google.maps.places.SearchBox(input);
-            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
             // Bias the SearchBox results towards current map's viewport.
             map.addListener('bounds_changed', function () {
@@ -47,7 +46,7 @@ class Distances extends Component {
             searchBox.addListener('places_changed', function () {
                 let places = searchBox.getPlaces();
 
-                if (places.length == 0) {
+                if (places.length === 0) {
                     return;
                 }
 
@@ -91,8 +90,10 @@ class Distances extends Component {
             });
         }
 
+        //initialize the Map
         initAutocomplete();
 
+        //getting directions to the first location
         let directionsService = new google.maps.DirectionsService();
 
         directionsService.route({
