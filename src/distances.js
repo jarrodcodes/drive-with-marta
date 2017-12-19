@@ -25,7 +25,7 @@ class Distances extends Component {
                 zoom: 15,
                 mapTypeId: 'roadmap'
             });
-
+            //adding a marker based on location
             let userLocationMarker = new google.maps.Marker({
                 position: { lat: 33.8509306, lng: -84.376941 },
                 map: map
@@ -107,9 +107,8 @@ class Distances extends Component {
 
     render() {
         return (
-            <body>
                 <div>
-                    <input id="pac-input" class="controls" type="text" placeholder="Search Box"></input>
+                    <input id="pac-input" className="controls" type="text" placeholder="Search Box"></input>
                     <div>
                         <p>The direct driving time to your destination is {_.get(this.state, 'events.routes[0].legs[0].duration.text') || ''} </p>
                         <h3>My Google Maps Demo</h3>
@@ -117,7 +116,6 @@ class Distances extends Component {
                         </div>
                     </div>
                 </div>
-            </body>
         )
     }
 }

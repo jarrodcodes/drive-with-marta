@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class Maps extends Component {
+class Maps extends Component {
 
 
   constructor(props) {
