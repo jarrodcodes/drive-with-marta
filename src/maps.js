@@ -19,7 +19,8 @@ class Maps extends Component {
       let map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 33.8509306, lng: -84.376941 },
         zoom: 15,
-        mapTypeId: 'roadmap'
+        mapTypeId: 'roadmap',
+        zoomControl: true
       });
       //adding a marker based on location
       let userLocationMarker = new google.maps.Marker({
@@ -28,8 +29,10 @@ class Maps extends Component {
       });
 
       // Create the search box and link it to the UI element.
+      
       let input = document.getElementById('pac-input');
       let searchBox = new google.maps.places.SearchBox(input);
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
       // Bias the SearchBox results towards current map's viewport.
       map.addListener('bounds_changed', function () {
@@ -99,7 +102,7 @@ class Maps extends Component {
         <h3>Your location</h3>
         <div id="map">
         </div>
-      </div>
+        </div>
     )
   }
 }
