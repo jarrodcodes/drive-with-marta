@@ -31,7 +31,6 @@ class Distances extends Component {
         console.log('I am Distances state', this.state)
         return (
             <div>
-                <input id="pac-input" className="controls" type="text" placeholder="Search Box"></input>
                 <div>
                     <p>I am distances.js. The direct driving time to your destination is {_.get(this.state, 'drivingRoute.routes[0].legs[0].duration.text') || ''} </p>
                     <div>

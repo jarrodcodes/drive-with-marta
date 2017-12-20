@@ -29,10 +29,9 @@ class Maps extends Component {
       });
 
       // Create the search box and link it to the UI element.
-      
+
       let input = document.getElementById('pac-input');
       let searchBox = new google.maps.places.SearchBox(input);
-      map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
 
       // Bias the SearchBox results towards current map's viewport.
       map.addListener('bounds_changed', function () {
@@ -99,10 +98,12 @@ class Maps extends Component {
     console.log('I am Maps state', this.state);
     return (
       <div>
+        <input id="pac-input" className="controls" type="text" placeholder="Where would you like to go?">
+        </input>
         <h3>Your location</h3>
         <div id="map">
         </div>
-        </div>
+      </div>
     )
   }
 }
