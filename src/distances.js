@@ -27,18 +27,18 @@ class Distances extends Component {
     }
 
     render() {
-        console.log('I am Distances props' , this.props)
+        console.log('I am Distances props', this.props)
         console.log('I am Distances state', this.state)
         return (
+            <div>
+                <input id="pac-input" className="controls" type="text" placeholder="Search Box"></input>
                 <div>
-                    <input id="pac-input" className="controls" type="text" placeholder="Search Box"></input>
+                    <p>I am distances.js. The direct driving time to your destination is {_.get(this.state, 'drivingRoute.routes[0].legs[0].duration.text') || ''} </p>
                     <div>
-                        <p>I am distances.js. The direct driving time to your destination is {_.get(this.state, 'drivingRoute.routes[0].legs[0].duration.text') || ''} </p>
-                        <div>
-                            <Maps  {...this.state}/>
-                            </div>
+                        <Maps  {...this.state} />
                     </div>
                 </div>
+            </div>
         )
     }
 }

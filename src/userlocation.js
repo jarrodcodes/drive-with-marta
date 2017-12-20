@@ -8,14 +8,14 @@ class UserLocation extends Component {
 
     constructor() {
         super()
-        this.state={
+        this.state = {
         }
     }
 
     componentDidMount() {
         navigator.geolocation.getCurrentPosition((response) => {
-            this.setState({userLocationObject: response})
-          });
+            this.setState({ userLocationObject: response })
+        });
 
     }
 
@@ -24,11 +24,11 @@ class UserLocation extends Component {
         console.log('I am userLocation state', this.state);
         let latitude = _.get(this.state, 'userLocationObject.coords.latitude') || 'Loading... Please wait.';
         let longitude = _.get(this.state, 'userLocationObject.coords.longitude') || '';
-        
+
         return (
             <div>
-            <p>Hi there. I have you at {latitude}, {longitude}</p>
-            <Distances {...this.state}/>
+                <p>Hi there. I have you at {latitude}, {longitude}</p>
+                <Distances {...this.state} />
             </div>
         )
     }
