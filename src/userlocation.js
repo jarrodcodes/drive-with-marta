@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import _ from 'lodash';
+import Distances from './distances.js';
 
 class UserLocation extends Component {
 
@@ -12,22 +13,23 @@ class UserLocation extends Component {
     }
 
     componentDidMount() {
-        let self = this;
         navigator.geolocation.getCurrentPosition((response) => {
-            self.setState({events: response})
+            this.setState({userLocationObject: response})
           });
 
     }
 
     render() {
-        let currentState = this.state
-        let latitude = _.get(currentState, 'events.coords.latitude') || 'Loading... Please wait.';
-        let longitude = _.get(currentState, 'events.coords.longitude') || '';
-        let gps = {latitude,longitude};
-        console.log(gps)
+        console.log('I am userLocation props', this.props);
+        console.log('I am userLocation state', this.state);
+        let latitude = _.get(this.state, 'userLocationObject.coords.latitude') || 'Loading... Please wait.';
+        let longitude = _.get(this.state, 'userLocationObject.coords.longitude') || '';
         
         return (
+            <div>
             <p>Hi there. I have you at {latitude}, {longitude}</p>
+            <Distances {...this.state}/>
+            </div>
         )
     }
 }
