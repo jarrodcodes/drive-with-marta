@@ -11,14 +11,14 @@ class Distances extends Component {
     }
 
     componentWillMount() {
-
+            this.setState({loading: true}); //optional 
     }
 
     componentDidMount() {
-        let currentState = this.props;
+        
         let directionsService = new google.maps.DirectionsService();
         directionsService.route({
-            origin: "Atlanta",
+            origin: this.props.latitude + ", "+ this.props.longitude,
             destination: "New York",
             travelMode: 'DRIVING'
         }, (response, status) => {
@@ -27,12 +27,14 @@ class Distances extends Component {
     }
 
     render() {
+
         console.log('I am Distances props', this.props)
         console.log('I am Distances state', this.state)
         return (
             <div>
                 <div>
                     <p>I am distances.js. The direct driving time to your destination is {_.get(this.state, 'drivingRoute.routes[0].legs[0].duration.text') || ''} </p>
+                    <p>{this.props.children}</p>
                     <div>
                         <Maps  {...this.state} />
                     </div>
