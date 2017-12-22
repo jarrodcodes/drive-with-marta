@@ -22,10 +22,7 @@ class Distances extends Component {
         })
       };
 
-      
-
-    render() {
-        //this.setState({loading: true}); //optional 
+      componentDidUpdate() {
         let self = this;
         let directionsService = new google.maps.DirectionsService();
         directionsService.route({
@@ -38,8 +35,15 @@ class Distances extends Component {
             //self.setState({ drivingRoute: response })
             let directions = response.routes[0].legs[0].duration.text;
             console.log(directions)
-        }
-    )
+            this.setState({
+                userChosenDestination: directions})
+            
+        })
+    }
+      
+    render() {
+        //this.setState({loading: true}); //optional 
+
         console.log(_.get(this.state,'userChosenDestination.place_id' || ''))
         console.log('I am Distances props', this.props)
         console.log('I am Distances state', this.state)
