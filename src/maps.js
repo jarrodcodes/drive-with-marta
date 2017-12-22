@@ -13,7 +13,7 @@ class Maps extends Component {
   }
 
   componentDidMount() {
-
+    var self = this;
     //Creating the Google map
     function initAutocomplete() {
       let map = new google.maps.Map(document.getElementById('map'), {
@@ -47,6 +47,7 @@ class Maps extends Component {
         if (places.length === 0) {
           return;
         }
+        self.setState({searchResult: places}).bind(this); //optional 
 
         // Clear out the old markers.
         markers.forEach(function (marker) {

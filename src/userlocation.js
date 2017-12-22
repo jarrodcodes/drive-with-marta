@@ -29,14 +29,14 @@ class UserLocation extends Component {
             console.log(this.state)
             return (
                 <div>
-                {this.state.Loading === true &&
+                {_.get(this.state, 'Loading') === true &&
                 <h1>{'Welcome to Smarta Commute! Loading...'}</h1>
                 }
-                {this.state.Loading === false && this.state.userLocationObject.coords.latitude &&
+                {_.get(this.state, 'Loading') === false && _.get(this.state , 'userLocationObject.coords.latitude') &&
                     <div><h1>{'Welcome to Smarta Commute!'}</h1>
-                    <div>Found you at {this.state.userLocationObject.coords.latitude},{this.state.userLocationObject.coords.longitude}
+                    <div>Found you at {_.get(this.state, 'userLocationObject.coords.latitude')},{_.get(this.state,'userLocationObject.coords.longitude')}
                     <div>
-                    <Distances latitude={this.state.userLocationObject.coords.latitude} longitude={this.state.userLocationObject.coords.longitude}></Distances>
+                    <Distances latitude={_.get(this.state, 'userLocationObject.coords.latitude')} longitude={_.get(this.state,'userLocationObject.coords.longitude')}></Distances>
                     </div>
                     </div>
                     </div>

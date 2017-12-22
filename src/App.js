@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserLocation from './userlocation.js';
 import Distances from './distances.js';
 import Maps from './maps.js';
-
+import Parent from './parent.js'
 class App extends Component {
 
   render() {
