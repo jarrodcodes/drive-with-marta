@@ -12,8 +12,13 @@ class UserLocation extends Component {
     }
 
     componentWillMount() {
+        let options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+          };
         this.setState({ Loading: true })
-        navigator.geolocation.getCurrentPosition((response) => {
+        navigator.geolocation.getCurrentPosition((response, options) => {
             this.setState({ userLocationObject: response })
             this.setState({ Loading: false })
         })

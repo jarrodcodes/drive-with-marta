@@ -8,9 +8,8 @@ class Maps extends Component {
     super(props)
 
     this.state = {
-      fieldVal: ""
-    }
   }
+}
 
   componentDidMount() {
     var self = this;
