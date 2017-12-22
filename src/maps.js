@@ -8,7 +8,7 @@ class Maps extends Component {
     super(props)
 
     this.state = {
-
+      fieldVal: ""
     }
   }
 
@@ -47,8 +47,13 @@ class Maps extends Component {
         if (places.length === 0) {
           return;
         }
-        self.setState({searchResult: places}).bind(this); //optional 
 
+        let updateDestination = (e) => {
+          self.props.destinationUpdate(e); 
+          self.setState({userDestination: e});
+        };
+
+        places.onChange = updateDestination(places[0])
         // Clear out the old markers.
         markers.forEach(function (marker) {
           marker.setMap(null);
