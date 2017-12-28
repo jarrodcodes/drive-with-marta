@@ -24,7 +24,10 @@ class Maps extends Component {
         center: { lat: 33.8509306, lng: -84.376941 },
         zoom: 15,
         mapTypeId: 'roadmap',
-        zoomControl: true
+        zoomControl: true,
+        types: ['establishment'],
+        componentRestrictions: {state: 'GA'}
+
       });
 
       //adding a marker based on location
@@ -67,7 +70,7 @@ class Maps extends Component {
 
         //Calculate the drive time from the user's location to the chosen destination
 
-        self.props.fetchDriveTime(40, 80, "0270bebf4c425e0fcdd88ebc0f6b98ed7f221725")
+        self.props.fetchDriveTime(40, 80, "ChIJXYPZG0O59YgRbkmyNtqOEDo")
 
         // Clear out the old markers.
 
