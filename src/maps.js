@@ -15,7 +15,7 @@ class Maps extends Component {
 
   componentDidMount() {
 
-    var self = this;
+    const self = this;
 
     //Creating the Google map
 
@@ -60,6 +60,10 @@ class Maps extends Component {
         //Add user's chosen destination to Redux store
 
         self.props.addDestination(places[0]);
+        
+        //Calculate the drive time from the user's location to the chosen destination
+
+        self.props.fetchDriveTime(self.props)
 
         // Clear out the old markers.
 
@@ -76,19 +80,11 @@ class Maps extends Component {
             console.log("Returned place contains no geometry");
             return;
           }
-          let icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-          };
 
           // Create a marker for each place.
 
           markers.push(new google.maps.Marker({
             map: map,
-            icon: icon,
             title: place.name,
             position: place.geometry.location
           }));
@@ -101,9 +97,6 @@ class Maps extends Component {
           }
         });
         map.fitBounds(bounds);
-        console.log(_.get(self.props, 'GPS[0][0].timestamp' || ''))
-        self.props.fetchDriveTime(_.get(self.props, 'GPS[0][0].timestamp' || ''), _.get(self.props, 'GPS[0][0].timestamp' || ''), _.get(self.props, 'GPS[0][0].timestamp' || ''));
-
       });
     }
 
@@ -113,10 +106,10 @@ class Maps extends Component {
   }
 
   render() {
-
+    const self = this;
     console.log('I am Maps props', this.props);
     console.log('I am Maps state', this.state);
-    
+
     return (
       <div>
         <input id="pac-input" className="controls" type="text" placeholder="Where would you like to go?">

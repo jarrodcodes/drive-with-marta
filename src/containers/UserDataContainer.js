@@ -34,14 +34,15 @@ class UserDataContainer extends Component {
     }
 
     render() {
+        const self = this;
+        const userDestination  = (_.last(self.props.Destination[0]))
 
         console.log('I am UserData state', this.state);
         console.log('I am UserData props', this.props);
-
+        
         return (
             <div>
-                <p> This is a test of {_.get(this.props, 'GPS[0][0].timestamp' || '')} </p>
-
+                <p> This is a test of {_.get(userDestination,'id' || '')}</p>
                 <Maps />
             </div>
         )
