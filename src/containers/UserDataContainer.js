@@ -22,7 +22,6 @@ class UserDataContainer extends Component {
 
     componentDidMount() {
         this.props.fetchGPS()
-        this.props.fetchDriveTime();
         this.setState({ Loading: false })
     }
 
@@ -41,7 +40,7 @@ class UserDataContainer extends Component {
 
         return (
             <div>
-                <p> This is a test of {_.get(this.props, '[0].routes[0].legs[0].duration.text' || '')} </p>
+                <p> This is a test of {_.get(this.props, 'GPS[0][0].timestamp' || '')} </p>
 
                 <Maps />
             </div>
@@ -49,8 +48,8 @@ class UserDataContainer extends Component {
     }
 }
 
-function mapStateToProps({ GPS, Destination }) {
-    return { GPS, Destination };
+function mapStateToProps({ GPS, Destination, DriveTime }) {
+    return { GPS, Destination, DriveTime };
 }
 
 function mapDispatchToProps(dispatch) {

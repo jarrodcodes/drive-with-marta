@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { addDestination } from './actions/getUserDestination.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { fetchDriveTime } from './actions/getUserDrivingTime.js';
+import _ from 'lodash';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -99,6 +101,9 @@ class Maps extends Component {
           }
         });
         map.fitBounds(bounds);
+        console.log(_.get(self.props, 'GPS[0][0].timestamp' || ''))
+        self.props.fetchDriveTime(_.get(self.props, 'GPS[0][0].timestamp' || ''), _.get(self.props, 'GPS[0][0].timestamp' || ''), _.get(self.props, 'GPS[0][0].timestamp' || ''));
+
       });
     }
 
@@ -124,10 +129,12 @@ class Maps extends Component {
   }
 }
 
-
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addDestination }, dispatch);
+function mapStateToProps({ GPS, Destination, DriveTime }) {
+  return { GPS, Destination, DriveTime };
 }
 
-export default connect(null, mapDispatchToProps)(Maps);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchDriveTime, addDestination }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Maps);
