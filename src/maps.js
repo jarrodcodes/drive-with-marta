@@ -15,7 +15,7 @@ class Maps extends Component {
 
   componentDidMount() {
 
-    const self = this;
+    let self = this;
 
     //Creating the Google map
 

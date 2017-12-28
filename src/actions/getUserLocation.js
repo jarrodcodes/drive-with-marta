@@ -1,6 +1,6 @@
 export const getUserLocation = 'getUserLocation';
 
-const resolved = [];
+let resolved = [];
 
 const getPosition = function (options) {
   return new Promise(function (resolve, reject) {

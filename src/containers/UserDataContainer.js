@@ -41,7 +41,7 @@ class UserDataContainer extends Component {
         
         return (
             <div>
-                <p> This is a test of {_.get(userDestination,'id' || '')}</p>
+                <p> This is a test of {_.get(userDestination,'place_id' || '')}</p>
                 <Maps />
             </div>
         )
