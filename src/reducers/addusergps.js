@@ -1,8 +1,8 @@
-import { addUserDestination } from '../actions/addUserDestination.js';
+import { getUserLocation } from '../actions/getUserLocation.js';
 
 export default function(state = [], action) {
   switch (action.type) {
-    case addUserDestination:
+    case getUserLocation:
       return [action.payload];
   }
   return state;

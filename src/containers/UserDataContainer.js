@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import Distances from '../distances.js';
-import { fetchGPS } from '../actions/addUserLocation.js';
+import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -29,7 +29,7 @@ class UserDataContainer extends Component {
     }
 
     componentDidUpdate() {
-
+        
     }
 
     render() {

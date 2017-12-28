@@ -1,8 +1,8 @@
-export const addUserLocation = 'addUserLocation';
+export const getUserLocation = 'getUserLocation';
 
 const resolved = [];
 
-var getPosition = function (options) {
+const getPosition = function (options) {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve);
   });
@@ -12,7 +12,7 @@ export function fetchGPS() {
     resolved.push(resolve)
   })
   return {
-    type: addUserLocation,
+    type: getUserLocation,
     payload: resolved
   }
 }

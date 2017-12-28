@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
-import GetUserGPS from './getusergps.js'
-import GetUserDestination from './getuserdestination.js';
+import AddUserGPS from './addusergps.js'
+import AddUserDestination from './adduserdestination.js';
+import AddUserDriveTime from './adduserdrivetime.js';
 
 const rootReducer = combineReducers({
-    GPS: GetUserGPS,
-    Destination: GetUserDestination
+    GPS: AddUserGPS,
+    Destination: AddUserDestination,
+    DriveTime: AddUserDriveTime
 });
 
 export default rootReducer;

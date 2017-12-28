@@ -32,7 +32,6 @@ class Distances extends Component {
             this.setState({
                 userChosenDestination: directions
             })
-
         })
     }
 
