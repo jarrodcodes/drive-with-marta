@@ -34,9 +34,8 @@ class UserDataContainer extends Component {
     }
 
     render() {
-        const self = this;
-        const userDestination  = (_.last(self.props.Destination[0]))
-
+        let self = this;
+        let userDestination  = (_.last(self.props.Destination[0]))
         console.log('I am UserData state', this.state);
         console.log('I am UserData props', this.props);
         

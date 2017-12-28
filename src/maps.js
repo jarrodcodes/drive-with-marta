@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { addDestination } from './actions/getUserDestination.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchDriveTime } from './actions/getUserDrivingTime.js';
 import _ from 'lodash';
+import { fetchDriveTime } from './actions/getUserDrivingTime.js';
+import { addDestination } from './actions/getUserDestination.js';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -61,6 +61,10 @@ class Maps extends Component {
 
         self.props.addDestination(places[0]);
         
+        //Use only latest destination choice from Redux store
+
+        let userDestination = (_.last(self.props.Destination[0]))
+
         //Calculate the drive time from the user's location to the chosen destination
 
         self.props.fetchDriveTime(self.props)
@@ -106,7 +110,7 @@ class Maps extends Component {
   }
 
   render() {
-    const self = this;
+
     console.log('I am Maps props', this.props);
     console.log('I am Maps state', this.state);
 
