@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {addDestination} from './actions/addUserDestination.js';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
 class Maps extends Component {
@@ -46,13 +50,8 @@ class Maps extends Component {
         if (places.length === 0) {
           return;
         }
-
-        let updateDestination = (e) => {
-          self.props.destinationUpdate(e); 
-          self.setState({userDestination: e});
-        };
-
-        places.onChange = updateDestination(places[0])
+        self.props.addDestination(places[0]);
+        
         // Clear out the old markers.
         markers.forEach(function (marker) {
           marker.setMap(null);
@@ -113,4 +112,12 @@ class Maps extends Component {
   }
 }
 
-export default Maps;
+function mapStateToProps({ Destination }) {
+  return { Destination };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addDestination }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Maps);

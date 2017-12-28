@@ -16,17 +16,11 @@ class Distances extends Component {
 
     }
 
-    destinationUpdate = (userDestination) => {
-        this.setState({
-          userChosenDestination: userDestination
-        })
-      };
-
-      componentDidUpdate() {
+    componentDidUpdate() {
         let self = this;
         let directionsService = new google.maps.DirectionsService();
         directionsService.route({
-            origin: _.get(self.props, 'latitude') + ", "+ _.get(self.props, 'longitude'),
+            origin: _.get(self.props, 'latitude') + ", " + _.get(self.props, 'longitude'),
             destination: {
                 placeId: _.get(self.state, 'userChosenDestination.place_id'),
             },
@@ -36,15 +30,15 @@ class Distances extends Component {
             let directions = response.routes[0].legs[0].duration.text;
             console.log(directions)
             this.setState({
-                userChosenDestination: directions})
-            
+                userChosenDestination: directions
+            })
+
         })
     }
-      
+
     render() {
         //this.setState({loading: true}); //optional 
 
-        console.log(_.get(this.state,'userChosenDestination.place_id' || ''))
         console.log('I am Distances props', this.props)
         console.log('I am Distances state', this.state)
 
@@ -53,7 +47,7 @@ class Distances extends Component {
                 <div>
                     <p>I am distances.js. The direct driving time to your destination is {_.get(this.state, 'drivingRoute.routes[0].legs[0].duration.text')} </p>
                     <div>
-                    <Maps destinationUpdate={this.destinationUpdate} />
+                        <Maps destinationUpdate={this.destinationUpdate} />
                     </div>
                 </div>
             </div>
