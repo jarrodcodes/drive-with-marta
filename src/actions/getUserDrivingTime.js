@@ -2,19 +2,18 @@ import _ from 'lodash';
 
 export const getUserDrivingTime = 'getUserDrivingTime';
 
-const google = window.google;
+let google = window.google;
 
 export function fetchDriveTime(latitude, longitude, destination) {
     
-    const directionsService = new google.maps.DirectionsService();
-    
-    const driveTime = [];
-
+    let directionsService = new google.maps.DirectionsService();
+    console.log(destination)
+    let driveTime = [];
+    let origin = latitude + ", " + longitude;
+    console.log(origin)
     directionsService.route({
-        origin: latitude + ", " + longitude,
-        destination: {
-            placeId: destination,
-        },
+        origin: {placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4"},
+        destination: {placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4"},
         travelMode: 'DRIVING'
     }, (response, status) => {
         driveTime.push(response)

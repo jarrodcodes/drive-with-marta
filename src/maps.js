@@ -67,7 +67,7 @@ class Maps extends Component {
 
         //Calculate the drive time from the user's location to the chosen destination
 
-        self.props.fetchDriveTime(self.props)
+        self.props.fetchDriveTime(40, 80, "0270bebf4c425e0fcdd88ebc0f6b98ed7f221725")
 
         // Clear out the old markers.
 
