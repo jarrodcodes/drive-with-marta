@@ -124,12 +124,10 @@ class Maps extends Component {
   }
 }
 
-function mapStateToProps({ Destination }) {
-  return { Destination };
-}
+
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addDestination }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Maps);
+export default connect(null, mapDispatchToProps)(Maps);
