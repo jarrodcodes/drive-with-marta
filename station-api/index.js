@@ -129,5 +129,117 @@ StationList.sync({ force: true }).then(() => {
             lineColor: 'Gold',
             parking: true,
         })
+    }).then(() => {
+        return StationList.create({
+            name: 'Doraville',
+            placeID: 'ChIJZ5SGscQJ9YgRiOIn0Xkts2I',
+            lineColor: 'Gold',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Garnett',
+            placeID: 'ChIJPwwYvYID9YgRXXJ3wGJtL9M',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'West End',
+            placeID: 'ChIJH-cdwhQD9YgRPIgv1ebG-xg',
+            lineColor: 'Gold',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Oakland City',
+            placeID: 'ChIJ8avdoCcD9YgRWqnslIyLIRQ',
+            lineColor: 'Gold',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Lakewood/Ft. McPherson',
+            placeID: 'ChIJcYu_Qc8C9YgRiYo0eLC-9J4',
+            lineColor: 'Gold',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'East Point',
+            placeID: 'ChIJQUcEhlQd9YgRpNc_8cVzvHA',
+            lineColor: 'Gold',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'College Park',
+            placeID: 'ChIJszvd7bfi9IgRvSNLpVbZOWY',
+            lineColor: 'Gold',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Airport',
+            placeID: 'ChIJFwUs2M3i9IgR1SIEIQ8SwnQ',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Dome/GWCC/Philips Arena/CNN Center Station',
+            placeID: 'ChIJ77wFoX8D9YgRtW_Y5jb5QFU',
+            lineColor: 'Blue',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Vine City',
+            placeID: 'ChIJ1zEIAX0D9YgR6oB4zm-cj0M',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Ashby',
+            placeID: 'ChIJveUPJl4D9YgRd8HMkTVuy3Q',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'West Lake',
+            placeID: 'ChIJreumB68c9YgRdQjlrSGdXag',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Hamilton E. Holmes',
+            placeID: 'ChIJ38TYEZsc9YgR_uMf8vnjQGU',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Georgia State',
+            placeID: 'ChIJM_wogo8D9YgRJShSf2KlrnA',
+            lineColor: 'Blue',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Hamilton E. Holmes',
+            placeID: 'ChIJ38TYEZsc9YgR_uMf8vnjQGU',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Hamilton E. Holmes',
+            placeID: 'ChIJ38TYEZsc9YgR_uMf8vnjQGU',
+            lineColor: 'Blue',
+            parking: true,
+        })
     })
 });
