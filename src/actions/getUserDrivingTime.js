@@ -13,9 +13,9 @@ export function fetchDriveTime(latitude, longitude, destination) {
     let driveTime = [];
 
     directionsService.route({
-        origin: {placeId: "EjA5MDYgU3VtbWVyYnJvb2sgRHIsIFNhbmR5IFNwcmluZ3MsIEdBIDMwMzUwLCBVU0E"},
-        destination: {placeId: "ChIJRZAUaT4H9YgRL5WibxIO_dA"},
-        travelMode: 'TRANSIT'
+        origin: {placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4"},
+        destination: {placeId: destination+''},
+        travelMode: 'DRIVING'
     }, (response, status) => {
         driveTime.push(response)
     }

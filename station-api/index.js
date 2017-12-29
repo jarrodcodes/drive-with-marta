@@ -117,17 +117,17 @@ StationList.sync({ force: true }).then(() => {
         })
     }).then(() => {
         return StationList.create({
-            name: 'Arts Center',
-            placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
+            name: 'Brookhaven/Oglethorpe University',
+            placeID: 'ChIJCzg087sI9YgRWE1Ps6UDDj8',
             lineColor: 'Gold',
-            parking: false,
+            parking: true,
         })
     }).then(() => {
         return StationList.create({
-            name: 'Arts Center',
-            placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
+            name: 'Chamblee',
+            placeID: 'ChIJhcujTlMI9YgRxT33tRg5Y0I',
             lineColor: 'Gold',
-            parking: false,
+            parking: true,
         })
     })
 });
