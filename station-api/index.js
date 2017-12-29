@@ -61,17 +61,73 @@ StationList.sync({ force: true }).then(() => {
         })
     }).then(() => {
         return StationList.create({
-            name: 'Chipotle',
-            placeID: '3',
-            lineColor: 'The rice bowl rocks!!! ',
+            name: 'Five Points',
+            placeID: 'ChIJQ-E6T4ED9YgRI3vsWO3wlBQ',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Peachtree Center',
+            placeID: 'ChIJ3RLXaHgE9YgRStIII8XKcQ0',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Civic Center',
+            placeID: 'ChIJRd4PW3oE9YgRgAv4i39SSt0',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'North Avenue',
+            placeID: 'ChIJu65s0W4E9YgR1ZlcTtxARlw',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Midtown',
+            placeID: 'ChIJdym9WF0E9YgRMBWDOd-dwzU',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Arts Center',
+            placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Lindbergh Center',
+            placeID: 'ChIJo8oZEMIF9YgRS35yQXEexwg',
+            lineColor: 'Gold',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
-            name: 'Chipotle',
-            placeID: '3',
-            lineColor: 'The rice bowl rocks!!! ',
+            name: 'Lenox',
+            placeID: 'ChIJ_2U4W_8F9YgRyWVPwssotoE',
+            lineColor: 'Gold',
             parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Arts Center',
+            placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
+            lineColor: 'Gold',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Arts Center',
+            placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
+            lineColor: 'Gold',
+            parking: false,
         })
     })
 });
