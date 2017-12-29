@@ -292,3 +292,22 @@ StationList.sync({ force: true }).then(() => {
         })
     })
 });
+
+app.get('/stations', function (request, response) {
+    StationList.findAll({ order: [['createdAt', 'DESC']] }).then(stations => {
+        console.log(stations);
+        response.send(stations);
+    });
+});
+
+app.get('/stationswithparking', function (req, res) {
+    StationList.find({
+        where: { parking: true }
+    }).then(stations => {
+        res.send(stations);
+    })
+});
+
+app.listen(3000, () => {
+    console.log('Hi!! You are on port 3000!')
+});
