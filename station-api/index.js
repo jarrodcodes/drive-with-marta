@@ -229,17 +229,66 @@ StationList.sync({ force: true }).then(() => {
         })
     }).then(() => {
         return StationList.create({
-            name: 'Hamilton E. Holmes',
-            placeID: 'ChIJ38TYEZsc9YgR_uMf8vnjQGU',
+            name: 'King Memorial',
+            placeID: 'ChIJ0RsX5IwD9YgR6J2NIxeB5Yg',
+            lineColor: 'Blue',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Inman Park/Reynoldstown',
+            placeID: 'ChIJpzs5yaoG9YgRASrnY_9FFlU',
             lineColor: 'Blue',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
-            name: 'Hamilton E. Holmes',
-            placeID: 'ChIJ38TYEZsc9YgR_uMf8vnjQGU',
+            name: 'Edgewood/Candler Park',
+            placeID: 'ChIJf36v3rMG9YgRAs64dcfYpe4',
             lineColor: 'Blue',
             parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'East Lake',
+            placeID: 'ChIJt-iA79cG9YgRjYm93BmYtTQ',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Decatur',
+            placeID: 'ChIJRZAUaT4H9YgRL5WibxIO_dA',
+            lineColor: 'Blue',
+            parking: false,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Avondale',
+            placeID: 'ChIJ_e1VrEIH9YgRqyMtNuBzYj0',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Kensington',
+            placeID: 'ChIJAY-yWuqp9YgRmS8s6ru_uRw',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Indian Creek',
+            placeID: 'ChIJH3a7ap6p9YgRyzXDyPm_Li0',
+            lineColor: 'Blue',
+            parking: true,
+        })
+    }).then(() => {
+        return StationList.create({
+            name: 'Bankhead',
+            placeID: 'ChIJQ1OuG7AE9YgRikLXoEBZkdI',
+            lineColor: 'Green',
+            parking: false,
         })
     })
 });
