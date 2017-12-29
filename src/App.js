@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p>hi</p>
+        <p>Smarta Commute</p>
       <Router>
         <div>
           <ul>
