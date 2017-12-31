@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import { fetchGPS } from '../actions/getUserLocation.js';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
+
 class UserDataViewer extends Component {
 
     constructor(props) {
@@ -7,42 +12,37 @@ class UserDataViewer extends Component {
 
     }
 
-    componentWillMount(nextProps) {
-        let self = this;
-        if (self.props.GPS) {
-            self.forceUpdate()
-        }
+    componentWillMount() {
     }
 
     componentDidUpdate() {
+
     }
 
-    componentWillReceiveProps(nextProps) {
-        let self = this;
-        console.log(_.size(nextProps.GPS[0]))
-        console.log(nextProps)
-        if ((_.size(nextProps.GPS[0])) > 0) {
-           // self.forceUpdate()
-        }
-}
+    componentWillReceiveProps() {
+    }
 
     render() {
 
         let self = this;
-        //console.log('I am UserDataViewer state', self.state);
-        //console.log('I am UserDataViewer props', self.props);
-
+        console.log('I am UserDataViewer state', self.state);
+        console.log('I am UserDataViewer props', self.props);
         return (
             <div>
                 {
-                    self.props.GPS[0] &&
-
-                    <p>
-                       This is {self.props.GPS[0][1]}
-</p>
+                    'Trip info'
                 }
             </div>
         )
     }
 }
-export default (UserDataViewer);
+
+function mapStateToProps({ GPS, Destination, DriveTime }) {
+    return { GPS, Destination, DriveTime };
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ fetchGPS, fetchDriveTime }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserDataViewer);

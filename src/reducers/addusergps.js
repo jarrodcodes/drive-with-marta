@@ -1,10 +1,10 @@
 import { getUserLocation } from '../actions/getUserLocation.js';
 
-export default function(state = [], action) {
+export default function (state = [], action) {
   switch (action.type) {
     case getUserLocation:
       return [action.payload]
-      return [action.loadedGPS];
+    default:
+      return state
   }
-  return state;
 }

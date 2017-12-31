@@ -42,7 +42,7 @@ class Maps extends Component {
       //adding a marker based on location
 
       let userLocationMarker = new google.maps.Marker({
-        position: { lat: 33.8509306, lng: -84.376941 },
+        position: { lat: self.props.location.coords.latitude, lng: self.props.location.coords.longitude },
         map: map
       });
 
@@ -79,7 +79,7 @@ class Maps extends Component {
 
         //Calculate the drive time from the user's location to the chosen destination
 
-        self.props.fetchDriveTime(40, 80, "ChIJXYPZG0O59YgRbkmyNtqOEDo")
+        self.props.fetchDriveTime(self.props.location.coords.latitude, self.props.location.coords.longitude, userDestination.place_id)
 
         // Clear out the old markers.
 

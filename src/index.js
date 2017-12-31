@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers/rootreducer.js";
 
-
 const logger = store => next => action => {
     console.group(action.type)
     console.info('dispatching', action)

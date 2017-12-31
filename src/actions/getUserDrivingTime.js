@@ -7,13 +7,14 @@ let google = window.google;
 export function fetchDriveTime(latitude, longitude, destination) {
     
     let directionsService = new google.maps.DirectionsService();
-    
-    console.log(destination)
 
     let driveTime = [];
 
     directionsService.route({
-        origin: {placeId: "ChIJN1t_tDeuEmsRUsoyG83frY4"},
+        origin: {
+            lat: latitude,
+            lng: longitude
+        },
         destination: {placeId: destination+''},
         travelMode: 'DRIVING'
     }, (response, status) => {
