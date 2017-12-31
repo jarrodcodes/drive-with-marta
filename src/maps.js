@@ -129,8 +129,8 @@ class Maps extends Component {
 
     let self = this;
 
-    console.log('I am Maps props', this.props);
-    console.log('I am Maps state', this.state);
+    //console.log('I am Maps props', this.props);
+    //console.log('I am Maps state', this.state);
     return (
       <div>
         <input id="pac-input" className="controls" type="text" placeholder="Where would you like to go?">

@@ -36,11 +36,11 @@ class UserDataContainer extends Component {
     render() {
         let self = this;
         let userDestination  = (_.last(self.props.Destination[0]))        
-        console.log('I am UserDataContainer state', this.state);
-        console.log('I am UserDataContainer props', this.props);
+        //console.log('I am UserDataContainer state', this.state);
+        //console.log('I am UserDataContainer props', this.props);
         return (
             <div>
-                <UserDataViewer />
+                <UserDataViewer {...self.props}/>
                 {
                     this.state.Loading === false && self.state.userLocation &&
                     <Maps location={this.state.userLocation} />

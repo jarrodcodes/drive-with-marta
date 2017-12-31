@@ -1,38 +1,44 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchGPS } from '../actions/getUserLocation.js';
-import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
-import { addDestination } from '../actions/getUserDestination.js';
-import { bindActionCreators } from 'redux';
 
 class UserDataViewer extends Component {
 
     constructor(props) {
         super(props)
+
     }
 
     componentDidMount() {
+        let self = this;
+
     }
 
     componentDidUpdate() {
-
     }
 
+    componentWillReceiveProps(nextProps) {
+        let self = this;
+        if (self.props.GPS) {
+            self.forceUpdate()
+        }
+}
+
     render() {
-        console.log('I am UserDataViewer state', this.state);
-        console.log('I am UserDataViewer props', this.props);
+
+        let self = this;
+        console.log('I am UserDataViewer state', self.state);
+        console.log('I am UserDataViewer props', self.props);
+
         return (
-            'Hi'
+            <div>
+                {
+                    self.props.GPS[0] &&
+
+                    <p>
+                       This is {self.props.GPS[0].length}
+</p>
+                }
+            </div>
         )
     }
 }
-
-function mapStateToProps({GPS, Destination, DriveTime}) {
-    return {GPS, Destination, DriveTime };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchGPS, fetchDriveTime, addDestination}, dispatch);
-  }
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserDataViewer);
+export default (UserDataViewer);

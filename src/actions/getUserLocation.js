@@ -8,9 +8,11 @@ const getPosition = function (options) {
   });
 }
 export function fetchGPS() {
-  getPosition().then(function(resolve){
-    resolved.push(resolve)
-  })
+  getPosition().then((resolve => {
+    console.log(resolve)
+    resolved.push(resolve.coords.latitude)
+    resolved.push(resolve.coords.longitude)
+  }))
   return {
     type: getUserLocation,
     payload: resolved
