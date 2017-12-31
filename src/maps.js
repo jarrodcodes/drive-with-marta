@@ -13,20 +13,29 @@ class Maps extends Component {
     super(props)
   }
 
+
+  componentWillMount() {
+
+  }
+
+  componentWillReceiveProps() {
+
+  }
+
   componentDidMount() {
 
     let self = this;
-
     //Creating the Google map
 
     function initAutocomplete() {
+
       let map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 33.8509306, lng: -84.376941 },
+        center: { lat: self.props.location.coords.latitude, lng: self.props.location.coords.longitude },
         zoom: 15,
         mapTypeId: 'roadmap',
         zoomControl: true,
         types: ['establishment'],
-        componentRestrictions: {state: 'GA'}
+        componentRestrictions: { state: 'GA' }
 
       });
 
@@ -63,7 +72,7 @@ class Maps extends Component {
         //Add user's chosen destination to Redux store
 
         self.props.addDestination(places[0]);
-        
+
         //Use only latest destination choice from Redux store
 
         let userDestination = (_.last(self.props.Destination[0]))
@@ -105,6 +114,7 @@ class Maps extends Component {
         });
         map.fitBounds(bounds);
       });
+
     }
 
     //initialize the Map
@@ -112,16 +122,19 @@ class Maps extends Component {
     initAutocomplete();
   }
 
+  componentDidUpdate() {
+  }
+
   render() {
+
+    let self = this;
 
     console.log('I am Maps props', this.props);
     console.log('I am Maps state', this.state);
-
     return (
       <div>
         <input id="pac-input" className="controls" type="text" placeholder="Where would you like to go?">
         </input>
-        <h3>Your location</h3>
         <div id="map">
         </div>
       </div>
@@ -129,8 +142,8 @@ class Maps extends Component {
   }
 }
 
-function mapStateToProps({ GPS, Destination, DriveTime }) {
-  return { GPS, Destination, DriveTime };
+function mapStateToProps({ Destination, DriveTime }) {
+  return {Destination, DriveTime };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -1,51 +1,56 @@
-//get user's current location and add it to Redux
-
 import React, { Component } from 'react';
 import _ from 'lodash';
-import Distances from '../distances.js';
+import UserDataViewer from '../views/UserDataViewer.js';
 import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
 import Maps from '../maps.js';
+import '../maps.css';
 
 class UserDataContainer extends Component {
 
     constructor() {
-        super()
+        super();
     }
 
     componentWillMount() {
+        this.props.fetchGPS()
         this.setState({ Loading: true })
+        navigator.geolocation.getCurrentPosition((response) => {
+            this.setState({ userLocation: response })
+            this.setState({ Loading: false })
+        })
     }
 
-
     componentDidMount() {
-        this.props.fetchGPS()
-        this.setState({ Loading: false })
     }
 
     componentWillReceiveProps() {
-
     }
 
     componentDidUpdate() {
-        
+
     }
 
     render() {
         let self = this;
-        let userDestination  = (_.last(self.props.Destination[0]))
-        console.log('I am UserData state', this.state);
-        console.log('I am UserData props', this.props);
-        
+        let userDestination  = (_.last(self.props.Destination[0]))        
+        console.log('I am UserDataContainer state', this.state);
+        console.log('I am UserDataContainer props', this.props);
         return (
             <div>
-                <p> This is a test of {_.get(userDestination,'place_id' || '')}</p>
-                <Maps />
+                <UserDataViewer />
+                {
+                    this.state.Loading === false && self.state.userLocation &&
+                    <Maps location={this.state.userLocation} />
+                }
+                <p> This is a test of {_.get(userDestination, 'place_id' || '')}</p>
+
             </div>
         )
     }
+
 }
 
 function mapStateToProps({ GPS, Destination, DriveTime }) {

@@ -301,7 +301,7 @@ app.get('/stations', function (request, response) {
 });
 
 app.get('/stationswithparking', function (req, res) {
-    StationList.find({
+    StationList.findAll({
         where: { parking: true }
     }).then(stations => {
         res.send(stations);
