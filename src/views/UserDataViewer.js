@@ -39,7 +39,7 @@ class UserDataViewer extends Component {
                     self.props.DriveTime.DriveTime[0].status
                 }
                 <p>
-                    4
+                    I render the status if you pick a place, but you have to then hit "Home".
 </p>
             </div>
         )

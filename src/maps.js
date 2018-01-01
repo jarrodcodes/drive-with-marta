@@ -142,8 +142,11 @@ class Maps extends Component {
   }
 }
 
-function mapStateToProps({ Destination, DriveTime }) {
-  return {Destination, DriveTime };
+function mapStateToProps(state) {
+  return {
+    Destination: state.Destination,
+     DriveTime: state.DriveTime
+     };
 }
 
 function mapDispatchToProps(dispatch) {
