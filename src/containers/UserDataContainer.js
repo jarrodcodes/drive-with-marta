@@ -48,8 +48,12 @@ class UserDataContainer extends Component {
 
 }
 
-function mapStateToProps({ GPS, Destination, DriveTime }) {
-    return { GPS, Destination, DriveTime };
+function mapStateToProps(state) {
+    return { 
+        GPS: state.GPS, 
+        Destination: state.Destination,
+        DriveTime: state.DriveTime.DriveTime
+        };
 }
 
 function mapDispatchToProps(dispatch) {

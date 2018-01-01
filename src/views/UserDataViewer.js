@@ -19,9 +19,6 @@ class UserDataViewer extends Component {
 
     }
 
-    componentWillReceiveProps() {
-    }
-
     render() {
 
         let self = this;
@@ -29,20 +26,18 @@ class UserDataViewer extends Component {
         console.log('I am UserDataViewer props', self.props);
         return (
             <div>
-                {
-                    'Trip info'
+                <p>
+            {self.props != null
+             && self.props.DriveTime 
+             && self.props.DriveTime[0] 
+             && self.props.DriveTime[0].status &&
+                    self.state.DriveTime[0].status 
                 }
+                </p>
+            4
             </div>
         )
     }
 }
 
-function mapStateToProps({ GPS, Destination, DriveTime }) {
-    return { GPS, Destination, DriveTime };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchGPS, fetchDriveTime }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserDataViewer);
+export default (UserDataViewer);

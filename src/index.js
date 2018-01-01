@@ -15,10 +15,10 @@ const logger = store => next => action => {
     return result
   }
   
-  let createStoreWithMiddleware = applyMiddleware(logger)(createStore)
+  const store = (createStore(reducers, applyMiddleware(logger)))
   
   ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={store}>
       <App />
     </Provider>,
     document.getElementById('root')
