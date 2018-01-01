@@ -15,7 +15,6 @@ class UserDataContainer extends Component {
     }
 
     componentWillMount() {
-        this.props.fetchGPS()
         this.setState({ Loading: true })
         navigator.geolocation.getCurrentPosition((response) => {
             this.setState({ userLocation: response })
@@ -52,7 +51,7 @@ function mapStateToProps(state) {
     return { 
         GPS: state.GPS, 
         Destination: state.Destination,
-        DriveTime: state.DriveTime.DriveTime
+        DriveTime: state.DriveTime
         };
 }
 

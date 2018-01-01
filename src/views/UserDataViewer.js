@@ -19,22 +19,28 @@ class UserDataViewer extends Component {
 
     }
 
+    componentWillReceiveProps(nextProps) {
+    }
+
     render() {
 
         let self = this;
         console.log('I am UserDataViewer state', self.state);
         console.log('I am UserDataViewer props', self.props);
+        let userDriveTime = self.props.DriveTime
+        console.log(userDriveTime)
         return (
             <div>
-                <p>
-            {self.props != null
-             && self.props.DriveTime 
-             && self.props.DriveTime[0] 
-             && self.props.DriveTime[0].status &&
-                    self.state.DriveTime[0].status 
+
+                {self.props.DriveTime &&
+                    self.props.DriveTime.DriveTime &&
+                    self.props.DriveTime.DriveTime[0] &&
+                    self.props.DriveTime.DriveTime[0].status &&
+                    self.props.DriveTime.DriveTime[0].status
                 }
-                </p>
-            4
+                <p>
+                    4
+</p>
             </div>
         )
     }
