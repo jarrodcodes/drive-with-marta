@@ -20,11 +20,10 @@ class UserDataViewer extends Component {
                     self.props.DriveTime.DriveTime &&
                     self.props.DriveTime.DriveTime[0] &&
                     self.props.DriveTime.DriveTime[0].status &&
+                    self.props.DriveTime.DriveTime[0].status === 'OK' &&
                     'Your direct driving time is: ' + self.props.DriveTime.DriveTime[0].routes[0].legs[0].duration.text + '.'
                 }
-                <p>
-                    
-</p>
+                
             </div>
         )
     }
