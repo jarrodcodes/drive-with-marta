@@ -1,26 +1,10 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
 
 class UserDataViewer extends Component {
-
-    constructor(props) {
-        super(props)
-
-    }
-
-    componentWillMount() {
-    }
-
-    componentDidUpdate() {
-
-    }
-
-    componentWillReceiveProps(nextProps) {
-    }
 
     render() {
 
@@ -36,10 +20,10 @@ class UserDataViewer extends Component {
                     self.props.DriveTime.DriveTime &&
                     self.props.DriveTime.DriveTime[0] &&
                     self.props.DriveTime.DriveTime[0].status &&
-                    self.props.DriveTime.DriveTime[0].status
+                    'Your direct driving time is: ' + self.props.DriveTime.DriveTime[0].routes[0].legs[0].duration.text + '.'
                 }
                 <p>
-                    I render the status if you pick a place, but you have to then hit "Home".
+                    
 </p>
             </div>
         )

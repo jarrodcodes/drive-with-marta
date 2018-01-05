@@ -25,6 +25,7 @@ class Maps extends Component {
   componentDidMount() {
 
     let self = this;
+    
     //Creating the Google map
 
     function initAutocomplete() {
@@ -35,8 +36,6 @@ class Maps extends Component {
         mapTypeId: 'roadmap',
         zoomControl: true,
         types: ['establishment'],
-        componentRestrictions: { state: 'GA' }
-
       });
 
       //adding a marker based on location

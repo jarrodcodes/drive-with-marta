@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'lodash';
 import UserDataViewer from '../views/UserDataViewer.js';
 import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
@@ -10,10 +9,6 @@ import '../maps.css';
 
 class UserDataContainer extends Component {
 
-    constructor() {
-        super();
-    }
-
     componentWillMount() {
         this.setState({ Loading: true })
         navigator.geolocation.getCurrentPosition((response) => {
@@ -22,21 +17,11 @@ class UserDataContainer extends Component {
         })
     }
 
-    componentDidMount() {
-    }
-
-    componentWillReceiveProps() {
-    }
-
-    componentDidUpdate() {
-
-    }
-
     render() {
         let self = this;
         return (
             <div>
-                <UserDataViewer {...self.props}/>
+                <UserDataViewer {...self.props} />
                 {
                     this.state.Loading === false && this.state.userLocation &&
                     <Maps location={this.state.userLocation} />
@@ -44,15 +29,14 @@ class UserDataContainer extends Component {
             </div>
         )
     }
-
 }
 
 function mapStateToProps(state) {
-    return { 
-        GPS: state.GPS, 
+    return {
+        GPS: state.GPS,
         Destination: state.Destination,
         DriveTime: state.DriveTime
-        };
+    };
 }
 
 function mapDispatchToProps(dispatch) {

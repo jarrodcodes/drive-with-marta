@@ -1,26 +1,29 @@
-import _ from 'lodash';
-
 export const getUserDrivingTime = 'getUserDrivingTime';
 
 let google = window.google;
 
 export function fetchDriveTime(latitude, longitude, destination) {
-    
-    let directionsService = new google.maps.DirectionsService();
+    return (dispatch, getState) => {
+        let directionsService = new google.maps.DirectionsService();
 
-    let driveTime = [];
+        let driveTime = [];
 
-    directionsService.route({
-        origin: {
-            lat: latitude,
-            lng: longitude
-        },
-        destination: {placeId: destination+''},
-        travelMode: 'DRIVING'
-    }, (response, status) => {
-        driveTime.push(response)
+        directionsService.route({
+            origin: {
+                lat: latitude,
+                lng: longitude
+            },
+            destination: { placeId: destination + '' },
+            travelMode: 'DRIVING'
+        }, (response, status) => {
+            driveTime.push(response);
+            dispatch(updateDriveTime(driveTime));
+        }
+        );
     }
-    )
+}
+
+export function updateDriveTime(driveTime) {
     return {
         type: getUserDrivingTime,
         payload: driveTime

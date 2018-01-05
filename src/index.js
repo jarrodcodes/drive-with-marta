@@ -5,6 +5,7 @@ import App from './App';
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers/rootreducer.js";
+import thunk from 'redux-thunk';
 
 const logger = store => next => action => {
     console.group(action.type)
@@ -15,7 +16,7 @@ const logger = store => next => action => {
     return result
   }
   
-  const store = (createStore(reducers, applyMiddleware(logger)))
+  const store = (createStore(reducers, applyMiddleware(logger, thunk)))
   
   ReactDOM.render(
     <Provider store={store}>
