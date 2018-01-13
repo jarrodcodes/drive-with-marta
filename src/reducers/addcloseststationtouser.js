@@ -1,11 +1,11 @@
-import { getClosestStation } from '../actions/getClosestStation.js';
+import { getClosestStationToUser } from '../actions/getClosestStationToUser.js';
 
 export default function (state = [], action) {
   switch (action.type) {
-    case getClosestStation:
+    case getClosestStationToUser:
       const newState = {
         ...state,
-        ClosestStation: action.payload,
+        ClosestStationToUser: action.payload,
       }
       return newState
     default:

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import _ from 'lodash';
 
-export const getClosestStation = 'getClosestStation';
+export const getClosestStationToDestination = 'getClosestStationToDestination';
 
 let google = window.google;
 let DistanceMatrixService = new google.maps.DistanceMatrixService();
@@ -9,9 +9,9 @@ let i = 0;
 let stationList = [];
 let stationPlacesList = [];
 let stationDriveTime = [];
-let closestStation = [];
+let closestStationToDestination = [];
 
-export function fetchClosestStation(latitude, longitude) {
+export function fetchClosestStationtoUser(latitude, longitude) {
     return (dispatch, getState) => {
         axios.get('http://localhost:3000/stationswithparking').then((stations) => {
             stationList.push(stations)
@@ -36,16 +36,16 @@ export function fetchClosestStation(latitude, longitude) {
                 });
             }
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
-                closestStation = stationDriveTime[0]
-                dispatch(updateClosestStation(closestStation));
+                closestStationToUser = stationDriveTime[0]
+                dispatch(updateClosestStationtoUser(closestStationToUser));
             }
         })
     }
 }
 
-export function updateClosestStation(closestStation) {
+export function updateClosestStationtoUser(closestStationToUser) {
     return {
-        type: getClosestStation,
-        payload: closestStation
+        type: getClosestStationToUser,
+        payload: closestStationToUser
     }
 }

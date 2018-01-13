@@ -16,10 +16,10 @@ class UserDataViewer extends Component {
         return (
             <div>
 
-                {self.props.ClosestStation &&
-                    self.props.ClosestStation.ClosestStation &&
-                    self.props.ClosestStation.ClosestStation.stationAddress &&
-                    'The nearest MARTA station to you is: ' + self.props.ClosestStation.ClosestStation.stationAddress + '.'
+                {self.props.ClosestStationToUser &&
+                    self.props.ClosestStationToUser.ClosestStationToUser &&
+                    self.props.ClosestStationToUser.ClosestStationToUser.stationAddress &&
+                    'The nearest MARTA station to you is: ' + self.props.ClosestStationToUser.ClosestStationToUser.stationAddress + '.'
                 }
                 <br>
                 </br>

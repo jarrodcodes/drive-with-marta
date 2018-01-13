@@ -4,7 +4,7 @@ import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
-import {fetchClosestStation} from '../actions/getClosestStation.js';
+import { fetchClosestStationToUser } from '../actions/getClosestStationToUser.js';
 import Maps from '../maps.js';
 import '../maps.css';
 
@@ -18,13 +18,9 @@ class UserDataContainer extends Component {
         }
         navigator.geolocation.getCurrentPosition((response, geo_options) => {
             this.setState({ userLocation: response })
-            self.props.fetchClosestStation(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude)            
+            self.props.fetchClosestStationToUser(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude)            
             this.setState({ Loading: false })
         })
-    }
-
-    componentWillReceiveProps(nextProps) {
-        let self = this;        
     }
 
     render() {
@@ -47,13 +43,13 @@ function mapStateToProps(state) {
         GPS: state.GPS,
         Destination: state.Destination,
         DriveTime: state.DriveTime,
-        ClosestStation: state.ClosestStation,
+        ClosestStationToUser: state.ClosestStationToUser,
         MartaTime: state.MartaTime
     };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchGPS, fetchDriveTime, fetchClosestStation }, dispatch);
+    return bindActionCreators({ fetchGPS, fetchDriveTime, fetchClosestStationToUser }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDataContainer);
