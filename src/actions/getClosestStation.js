@@ -1,4 +1,5 @@
 import axios from 'axios';
+import _ from 'lodash';
 
 export const getClosestStation = 'getClosestStation';
 
@@ -8,30 +9,32 @@ let i = 0;
 let stationList = [];
 let stationPlacesList = [];
 let stationDriveTime = [];
-let verticalBarList = []
+
 export function fetchClosestStation(latitude, longitude) {
     return (dispatch, getState) => {
         axios.get('http://localhost:3000/stationswithparking').then((stations) => {
             stationList.push(stations)
         }).then(() => {
-            console.log(stationList)
+            //console.log(stationList)
             for (i = 0; i < stationList[0].data.length; i++) {
-                stationPlacesList.push('place_id:' + stationList[0].data[i].placeID)
-                verticalBarList = stationPlacesList.join(',')
-                console.log(verticalBarList)
+                stationPlacesList.push({placeId: stationList[0].data[i].placeID + ''})
+                //console.log(stationPlacesList)
             }
         }).then(() => {
             let origin = new google.maps.LatLng(latitude, longitude);
             DistanceMatrixService.getDistanceMatrix(
                 {
                     origins: [origin],
-                    destinations: [origin],
+                    destinations: stationPlacesList,
                     travelMode: 'DRIVING',
                 }, callback);
             function callback(response, status) {
                 console.log(response)
+                stationDriveTime = response.destinationAddresses.map(function(value, index){
+                    return value + ' Distance is ' + response.rows[0].elements[index].duration.value
+                })
+                console.log(stationDriveTime)
             }
-
         })
 
         dispatch(updateClosestStation(stationDriveTime));
