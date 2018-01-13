@@ -11,23 +11,21 @@ let stationPlacesList = [];
 let stationDriveTime = [];
 let closestStationToDestination = [];
 
-export function fetchClosestStationtoUser(latitude, longitude) {
+export function fetchClosestStationtoDestination(destination) {
     return (dispatch, getState) => {
-        axios.get('http://localhost:3000/stationswithparking').then((stations) => {
+        axios.get('http://localhost:3000/stations').then((stations) => {
             stationList.push(stations)
         }).then(() => {
-            //console.log(stationList)
             for (i = 0; i < stationList[0].data.length; i++) {
                 stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
-                //console.log(stationPlacesList)
             }
         }).then(() => {
-            let origin = new google.maps.LatLng(latitude, longitude);
+            let origin = new google.maps.LatLng(destination);
             DistanceMatrixService.getDistanceMatrix(
                 {
-                    origins: [origin],
-                    destinations: stationPlacesList,
-                    travelMode: 'DRIVING',
+                    origins: stationPlacesList,
+                    destinations: [destination],
+                    travelMode: 'transit',
                 }, callback);
             function callback(response, status) {
                 if (status === 'OK') {
@@ -37,15 +35,15 @@ export function fetchClosestStationtoUser(latitude, longitude) {
             }
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
                 closestStationToUser = stationDriveTime[0]
-                dispatch(updateClosestStationtoUser(closestStationToUser));
+                dispatch(updateClosestStationtoDestination(closestStationToDestination));
             }
         })
     }
 }
 
-export function updateClosestStationtoUser(closestStationToUser) {
+export function updateClosestStationtoUser(closestStationToDestination) {
     return {
-        type: getClosestStationToUser,
-        payload: closestStationToUser
+        type: getClosestStationToDestination,
+        payload: closestStationToDestination
     }
 }

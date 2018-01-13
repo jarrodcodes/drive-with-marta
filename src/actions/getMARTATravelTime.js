@@ -2,7 +2,7 @@ export const getMARTATravelTime = 'getMARTATravelTime';
 
 let google = window.google;
 
-export function fetchMARTATime(station, destination) {
+export function fetchMARTATimePrimary(station, destination) {
     return (dispatch, getState) => {
         let directionsService = new google.maps.DirectionsService();
 
@@ -15,12 +15,12 @@ export function fetchMARTATime(station, destination) {
         }, (response, status) => {
             martaTime.push(response);
             console.log(martaTime, 'martatime')
-            dispatch(updateMARTATime(martaTime));
+            dispatch(updateMARTATimePrimary(martaTime));
         });
     }
 }
 
-export function updateMARTATime(martaTime) {
+export function updateMARTATimePrimary(martaTime) {
     return {
         type: getMARTATravelTime,
         payload: martaTime
