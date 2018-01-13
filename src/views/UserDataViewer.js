@@ -10,11 +10,17 @@ class UserDataViewer extends Component {
 
         let self = this;
         // console.log('I am UserDataViewer state', self.state);
-        // console.log('I am UserDataViewer props', self.props);
+        console.log('I am UserDataViewer props', self.props);
         let userDriveTime = self.props.DriveTime
-        // console.log(userDriveTime)
+
         return (
             <div>
+
+                {self.props.ClosestStation &&
+                    self.props.ClosestStation.ClosestStation &&
+                    self.props.ClosestStation.ClosestStation.stationAddress &&
+                    'The nearest MARTA station to you is: ' + self.props.ClosestStation.ClosestStation.stationAddress + '.'
+                }
 
                 {self.props.DriveTime &&
                     self.props.DriveTime.DriveTime &&
@@ -23,7 +29,7 @@ class UserDataViewer extends Component {
                     self.props.DriveTime.DriveTime[0].status === 'OK' &&
                     'Your direct driving time is: ' + self.props.DriveTime.DriveTime[0].routes[0].legs[0].duration.text + '.'
                 }
-                
+
             </div>
         )
     }

@@ -3,7 +3,11 @@ import { getClosestStation } from '../actions/getClosestStation.js';
 export default function (state = [], action) {
   switch (action.type) {
     case getClosestStation:
-      return [action.payload]
+      const newState = {
+        ...state,
+        ClosestStation: action.payload,
+      }
+      return newState
     default:
       return state
   }

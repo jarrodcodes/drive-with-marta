@@ -9,6 +9,7 @@ let i = 0;
 let stationList = [];
 let stationPlacesList = [];
 let stationDriveTime = [];
+let closestStation = [];
 
 export function fetchClosestStation(latitude, longitude) {
     return (dispatch, getState) => {
@@ -29,21 +30,20 @@ export function fetchClosestStation(latitude, longitude) {
                     travelMode: 'DRIVING',
                 }, callback);
             function callback(response, status) {
-                console.log(response)
-                stationDriveTime = response.destinationAddresses.map(function(item, index) {
-                    return {stationAddress: item, distance: response.rows[0].elements[index].duration.value};
+                stationDriveTime = response.destinationAddresses.map(function (item, index) {
+                    return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
                 });
-                console.log(stationDriveTime);
+                stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
+                closestStation = stationDriveTime[0]
+                dispatch(updateClosestStation(closestStation));
             }
         })
-
-        dispatch(updateClosestStation(stationDriveTime));
     }
 }
 
-export function updateClosestStation(stationDriveTime) {
+export function updateClosestStation(closestStation) {
     return {
         type: getClosestStation,
-        payload: stationDriveTime
+        payload: closestStation
     }
 }

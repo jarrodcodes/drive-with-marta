@@ -18,8 +18,7 @@ export function fetchDriveTime(latitude, longitude, destination) {
         }, (response, status) => {
             driveTime.push(response);
             dispatch(updateDriveTime(driveTime));
-        }
-        );
+        });
     }
 }
 
