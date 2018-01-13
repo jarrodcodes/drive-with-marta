@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import { fetchDriveTime } from './actions/getUserDrivingTime.js';
 import { addDestination } from './actions/getUserDestination.js';
+import  { fetchMARTATime } from './actions/getMARTATravelTime.js';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -25,7 +26,7 @@ class Maps extends Component {
   componentDidMount() {
 
     let self = this;
-    
+
     //Creating the Google map
 
     function initAutocomplete() {
@@ -79,6 +80,10 @@ class Maps extends Component {
         //Calculate the drive time from the user's location to the chosen destination
 
         self.props.fetchDriveTime(self.props.location.coords.latitude, self.props.location.coords.longitude, userDestination.place_id)
+
+        //Calculate the transit time from the nearest MARTA station
+
+        self.props.fetchMARTATime(self.props.ClosestStation.ClosestStation.stationAddress, userDestination.place_id)
 
         // Clear out the old markers.
 
@@ -144,12 +149,14 @@ class Maps extends Component {
 function mapStateToProps(state) {
   return {
     Destination: state.Destination,
-     DriveTime: state.DriveTime
-     };
+    DriveTime: state.DriveTime,
+    ClosestStation: state.ClosestStation,
+    MartaTime: state.MartaTime
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTime, addDestination }, dispatch);
+  return bindActionCreators({ fetchDriveTime, addDestination, fetchMARTATime }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);

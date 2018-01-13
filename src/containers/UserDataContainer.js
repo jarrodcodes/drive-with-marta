@@ -44,7 +44,8 @@ function mapStateToProps(state) {
         GPS: state.GPS,
         Destination: state.Destination,
         DriveTime: state.DriveTime,
-        ClosestStation: state.ClosestStation
+        ClosestStation: state.ClosestStation,
+        MartaTime: state.MartaTime
     };
 }
 

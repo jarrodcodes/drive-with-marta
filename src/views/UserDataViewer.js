@@ -21,13 +21,23 @@ class UserDataViewer extends Component {
                     self.props.ClosestStation.ClosestStation.stationAddress &&
                     'The nearest MARTA station to you is: ' + self.props.ClosestStation.ClosestStation.stationAddress + '.'
                 }
-
+                <br>
+                </br>
                 {self.props.DriveTime &&
                     self.props.DriveTime.DriveTime &&
                     self.props.DriveTime.DriveTime[0] &&
                     self.props.DriveTime.DriveTime[0].status &&
                     self.props.DriveTime.DriveTime[0].status === 'OK' &&
                     'Your direct driving time is: ' + self.props.DriveTime.DriveTime[0].routes[0].legs[0].duration.text + '.'
+                }
+                <br>
+                </br>
+                {self.props.MartaTime &&
+                    self.props.MartaTime[0] &&
+                    self.props.MartaTime[0][0] &&
+                    self.props.MartaTime[0][0].status &&
+                    self.props.MartaTime[0][0].status === 'OK' &&
+                    'Your MARTA transit time is: ' + self.props.MartaTime[0][0].routes[0].legs[0].duration.text + '.'
                 }
 
             </div>
