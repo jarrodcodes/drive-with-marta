@@ -30,9 +30,11 @@ export function fetchClosestStation(latitude, longitude) {
                     travelMode: 'DRIVING',
                 }, callback);
             function callback(response, status) {
+                if (status === 'OK') {
                 stationDriveTime = response.destinationAddresses.map(function (item, index) {
                     return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
                 });
+            }
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
                 closestStation = stationDriveTime[0]
                 dispatch(updateClosestStation(closestStation));
