@@ -17,7 +17,7 @@ export function fetchClosestStation(latitude, longitude) {
         }).then(() => {
             //console.log(stationList)
             for (i = 0; i < stationList[0].data.length; i++) {
-                stationPlacesList.push({placeId: stationList[0].data[i].placeID + ''})
+                stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
                 //console.log(stationPlacesList)
             }
         }).then(() => {
@@ -30,10 +30,10 @@ export function fetchClosestStation(latitude, longitude) {
                 }, callback);
             function callback(response, status) {
                 console.log(response)
-                stationDriveTime = response.destinationAddresses.map(function(value, index){
-                    return value + ' Distance is ' + response.rows[0].elements[index].duration.value
-                })
-                console.log(stationDriveTime)
+                stationDriveTime = response.destinationAddresses.map(function(item, index) {
+                    return {stationAddress: item, distance: response.rows[0].elements[index].duration.value};
+                });
+                console.log(stationDriveTime);
             }
         })
 
