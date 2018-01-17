@@ -1,9 +1,9 @@
 
-import { getMARTATravelTime } from '../actions/getMARTATravelTime.js';
+import { getMARTATravelTimePrimary } from '../actions/getMARTATravelTimePrimary.js';
 
 export default function (state = [], action) {
   switch (action.type) {
-    case getMARTATravelTime:
+    case getMARTATravelTimePrimary:
       return [action.payload]
     default:
       return state

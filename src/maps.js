@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import { fetchDriveTime } from './actions/getUserDrivingTime.js';
 import { addDestination } from './actions/getUserDestination.js';
-import  { fetchMARTATimePrimary } from './actions/getMARTATravelTime.js';
+import  { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
+import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -85,6 +86,10 @@ class Maps extends Component {
 
         self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
 
+        //Find the nearest station to the user's destination to determine if it's too far from MARTA to even bother
+
+        self.props.fetchClosestStationtoDestination(userDestination.place_id)
+
         // Clear out the old markers.
 
         markers.forEach(function (marker) {
@@ -133,7 +138,7 @@ class Maps extends Component {
 
     let self = this;
 
-    console.log('I am Maps props', this.props);
+    //console.log('I am Maps props', this.props);
     //console.log('I am Maps state', this.state);
     return (
       <div>
@@ -157,7 +162,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTime, addDestination, fetchMARTATimePrimary }, dispatch);
+  return bindActionCreators({ fetchDriveTime, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);

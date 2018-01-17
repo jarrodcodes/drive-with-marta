@@ -1,4 +1,4 @@
-export const getMARTATravelTime = 'getMARTATravelTime';
+export const getMARTATravelTimePrimary = 'getMARTATravelTimePrimary';
 
 let google = window.google;
 
@@ -26,7 +26,7 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
 
 export function updateMARTATimePrimary(martaTime) {
     return {
-        type: getMARTATravelTime,
+        type: getMARTATravelTimePrimary,
         payload: martaTime
     }
 }

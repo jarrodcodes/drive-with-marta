@@ -8,7 +8,7 @@ let DistanceMatrixService = new google.maps.DistanceMatrixService();
 let i = 0;
 let stationList = [];
 let stationPlacesList = [];
-let stationDriveTime = [];
+let stationWalkTime = [];
 let closestStationToDestination = [];
 
 export function fetchClosestStationtoDestination(destination) {
@@ -20,28 +20,27 @@ export function fetchClosestStationtoDestination(destination) {
                 stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
             }
         }).then(() => {
-            let origin = new google.maps.LatLng(destination);
             DistanceMatrixService.getDistanceMatrix(
                 {
                     origins: stationPlacesList,
-                    destinations: [destination],
-                    travelMode: 'transit',
+                    destinations: [{placeId: destination + ''}],
+                    travelMode: 'WALKING',
                 }, callback);
             function callback(response, status) {
-                if (status === 'OK') {
-                stationDriveTime = response.destinationAddresses.map(function (item, index) {
-                    return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
-                });
-            }
-                stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
-                closestStationToUser = stationDriveTime[0]
+
+                    console.log(status, "status")
+                //stationWalkTime = response.destinationAddresses.map(function (item, index) {
+                    //return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
+                //});
+                stationWalkTime = _.sortBy(stationWalkTime, ['distance'])
+                closestStationToDestination = stationWalkTime[0]
                 dispatch(updateClosestStationtoDestination(closestStationToDestination));
             }
         })
     }
 }
 
-export function updateClosestStationtoUser(closestStationToDestination) {
+export function updateClosestStationtoDestination(closestStationToDestination) {
     return {
         type: getClosestStationToDestination,
         payload: closestStationToDestination
