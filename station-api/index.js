@@ -308,6 +308,23 @@ app.get('/stationswithparking', function (req, res) {
     })
 });
 
+app.get('/stationsfirstbatch', function (req, res) {
+    StationList.findAll({
+        where: {id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]}
+    }).then(stations => {
+        res.send(stations);
+    })
+});
+
+app.get('/stationssecondbatch', function (req, res) {
+    StationList.findAll({
+        where: {id: [26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38]}
+    }).then(stations => {
+        res.send(stations);
+    })
+});
+
+
 app.listen(3000, () => {
     console.log('Hi!! You are on port 3000!')
 });
