@@ -24,9 +24,11 @@ class UserDataContainer extends Component {
         })
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(currentProps, nextProps) {
         let self = this;
-        self.props.fetchDrivingTimeToNearestStation(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude, nextProps.ClosestStationToUser.ClosestStationToUser.stationAddress)
+        if (!currentProps.ClosestStationToUser) {
+            self.props.fetchDrivingTimeToNearestStation(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude, nextProps.ClosestStationToUser.ClosestStationToUser.stationAddress)
+        }
     }
 
     render() {
