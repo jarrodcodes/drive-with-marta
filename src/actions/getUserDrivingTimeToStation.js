@@ -4,7 +4,7 @@ let google = window.google;
 
 export function fetchDrivingTimeToNearestStation(latitude, longitude, station) {
     return (dispatch, getState) => {
-            console.log(station, 'station')
+        
         let directionsService = new google.maps.DirectionsService();        
                 let driveTime = [];
         

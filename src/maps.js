@@ -83,7 +83,7 @@ class Maps extends Component {
 
         //Calculate the transit time from the nearest MARTA station
 
-        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id)
+        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
 
         // Clear out the old markers.
 
@@ -151,6 +151,7 @@ function mapStateToProps(state) {
     Destination: state.Destination,
     DriveTime: state.DriveTime,
     ClosestStationToUser: state.ClosestStationToUser,
+    DrivingTimeToStation: state.DrivingTimeToStation,
     MartaTime: state.MartaTime
   };
 }
