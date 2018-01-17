@@ -1,0 +1,7 @@
+2018-01-16 21:07:06.989 EST [11292] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-16 21:07:06.989 EST [11292] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-16 21:07:07.130 EST [11360] LOG:  database system was shut down at 2018-01-16 21:04:22 EST
+2018-01-16 21:07:07.171 EST [11292] LOG:  database system is ready to accept connections
+2018-01-16 21:10:38.057 EST [5380] FATAL:  role "root" does not exist
+2018-01-16 21:11:49.586 EST [8544] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
