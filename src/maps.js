@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 import { fetchDriveTime } from './actions/getUserDrivingTime.js';
 import { addDestination } from './actions/getUserDestination.js';
-import  { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
+import { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
 import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
@@ -82,13 +82,13 @@ class Maps extends Component {
 
         self.props.fetchDriveTime(self.props.location.coords.latitude, self.props.location.coords.longitude, userDestination.place_id)
 
-        //Calculate the transit time from the nearest MARTA station
-
-        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
-
         //Find the nearest station to the user's destination to determine if it's too far from MARTA to even bother
 
         self.props.fetchClosestStationtoDestination(userDestination.place_id)
+
+        //Calculate the transit time from the nearest MARTA station
+
+        //self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
 
         // Clear out the old markers.
 

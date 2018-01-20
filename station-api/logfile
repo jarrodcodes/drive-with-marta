@@ -5,3 +5,8 @@
 2018-01-16 21:10:38.057 EST [5380] FATAL:  role "root" does not exist
 2018-01-16 21:11:49.586 EST [8544] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
 	
+2018-01-17 00:40:48.309 EST [11292] LOG:  received fast shutdown request
+2018-01-17 00:40:48.410 EST [11292] LOG:  aborting any active transactions
+2018-01-17 00:40:48.434 EST [11292] LOG:  worker process: logical replication launcher (PID 11444) exited with exit code 1
+2018-01-17 00:40:48.443 EST [11412] LOG:  shutting down
+2018-01-17 00:40:48.645 EST [11292] LOG:  database system is shut down
