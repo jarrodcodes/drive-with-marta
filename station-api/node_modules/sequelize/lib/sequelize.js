@@ -12,6 +12,7 @@ const ModelManager = require('./model-manager');
 const QueryInterface = require('./query-interface');
 const Transaction = require('./transaction');
 const QueryTypes = require('./query-types');
+const TableHints = require('./table-hints');
 const sequelizeErrors = require('./errors');
 const Promise = require('./promise');
 const Hooks = require('./hooks');
@@ -771,6 +772,20 @@ class Sequelize {
   databaseVersion(options) {
     return this.getQueryInterface().databaseVersion(options);
   }
+  
+  /**
+   * Get the fn for random based on the dialect
+   *
+   * @return {Sequelize.fn}
+   */
+  random() {
+    const dialect = this.getDialect();
+    if (_.includes(['postgres', 'sqlite'], dialect)) {
+      return this.fn('RANDOM');
+    } else {
+      return this.fn('RAND');
+    }
+  }
 
   /**
    * Creates an object representing a database function. This can be used in search queries, both in where and order parts, and as default values in column definitions.
@@ -1164,6 +1179,11 @@ Sequelize.prototype.Promise = Sequelize.Promise = Promise;
  */
 Sequelize.prototype.QueryTypes = Sequelize.QueryTypes = QueryTypes;
 
+/**
+ * Available table hints to be used for querying data in mssql for table hints
+ * @see {@link TableHints}
+ */
+Sequelize.prototype.TableHints = Sequelize.TableHints = TableHints;
 
 /**
  * Operators symbols to be used for querying data

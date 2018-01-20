@@ -5,24 +5,12 @@ import _ from 'lodash';
 import { fetchDriveTimeToDestination } from './actions/getUserDrivingTimeToDestination.js';
 import { addDestination } from './actions/getUserDestination.js';
 import { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
-import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination';
+import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination.js';
+import { fetchColorOfSecondaryStation } from './actions/getColorOfSecondaryStation.js';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
 class Maps extends Component {
-
-  constructor(props) {
-    super(props)
-  }
-
-
-  componentWillMount() {
-
-  }
-
-  componentWillReceiveProps() {
-
-  }
 
   componentDidMount() {
 
@@ -90,6 +78,8 @@ class Maps extends Component {
 
         self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
 
+        //self.props.fetchColorOfSecondaryStation(self.props.MartaTimePrimary)
+
         // Clear out the old markers.
 
         markers.forEach(function (marker) {
@@ -131,15 +121,13 @@ class Maps extends Component {
     initAutocomplete();
   }
 
-  componentDidUpdate() {
-  }
-
   render() {
 
     let self = this;
 
-    //console.log('I am Maps props', this.props);
+    console.log('I am Maps props', this.props);
     //console.log('I am Maps state', this.state);
+
     return (
       <div>
         <input id="pac-input" className="controls" type="text" placeholder="Where would you like to go?">
@@ -154,15 +142,14 @@ class Maps extends Component {
 function mapStateToProps(state) {
   return {
     Destination: state.Destination,
-    DriveTime: state.DriveTime,
     ClosestStationToUser: state.ClosestStationToUser,
     DrivingTimeToStation: state.DrivingTimeToStation,
-    MartaTime: state.MartaTime
+    MartaTimePrimary: state.MartaTimePrimary
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination }, dispatch);
+  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);

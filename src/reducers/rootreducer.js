@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
     DriveTimeToDestination: AddUserDriveTimeToDestination,
     ClosestStationToUser: AddClosestStationToUser,
     ClosestStationToDestination: AddClosestStationToDestination,
-    MartaTime: AddMARTATimePrimary,
+    MartaTimePrimary: AddMARTATimePrimary,
     DrivingTimeToStation: AddUserDrivingTimeToStation
 });
 

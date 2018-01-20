@@ -31,12 +31,12 @@ class UserDataViewer extends Component {
                 }
                 <br>
                 </br>
-                {self.props.MartaTime &&
-                    self.props.MartaTime[0] &&
-                    self.props.MartaTime[0][0] &&
-                    self.props.MartaTime[0][0].status &&
-                    self.props.MartaTime[0][0].status === 'OK' &&
-                    'Your MARTA transit time is: ' + self.props.MartaTime[0][0].routes[0].legs[0].duration.text + '.'
+                {self.props.MartaTimePrimary &&
+                    self.props.MartaTimePrimary[0] &&
+                    self.props.MartaTimePrimary[0][0] &&
+                    self.props.MartaTimePrimary[0][0].status &&
+                    self.props.MartaTimePrimary[0][0].status === 'OK' &&
+                    'Your MARTA transit time is: ' + self.props.MartaTimePrimary[0][0].routes[0].legs[0].duration.text + '.'
                 }
 
             </div>
