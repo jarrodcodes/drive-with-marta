@@ -3,7 +3,7 @@ import UserDataViewer from '../views/UserDataViewer.js';
 import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
+import { fetchDriveTimeToDestination } from '../actions/getUserDrivingTimeToDestination.js';
 import { fetchClosestStationToUser } from '../actions/getClosestStationToUser.js';
 import { fetchDrivingTimeToNearestStation } from '../actions/getUserDrivingTimeToStation.js';
 import Maps from '../maps.js';
@@ -50,7 +50,7 @@ function mapStateToProps(state) {
     return {
         GPS: state.GPS,
         Destination: state.Destination,
-        DriveTime: state.DriveTime,
+        DriveTimeToDestination: state.DriveTimeToDestination,
         ClosestStationToUser: state.ClosestStationToUser,
         ClosestStationToDestination: state.ClosestStationToDestination,
         DrivingTimeToStation: state.DrivingTimeToStation,
@@ -59,7 +59,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchGPS, fetchDriveTime, fetchClosestStationToUser, fetchDrivingTimeToNearestStation }, dispatch);
+    return bindActionCreators({ fetchGPS, fetchDriveTimeToDestination, fetchClosestStationToUser, fetchDrivingTimeToNearestStation }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDataContainer);

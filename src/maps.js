@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import { fetchDriveTime } from './actions/getUserDrivingTime.js';
+import { fetchDriveTimeToDestination } from './actions/getUserDrivingTimeToDestination.js';
 import { addDestination } from './actions/getUserDestination.js';
 import { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
 import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination';
@@ -80,7 +80,7 @@ class Maps extends Component {
 
         //Calculate the drive time from the user's location to the chosen destination
 
-        self.props.fetchDriveTime(self.props.location.coords.latitude, self.props.location.coords.longitude, userDestination.place_id)
+        self.props.fetchDriveTimeToDestination(self.props.location.coords.latitude, self.props.location.coords.longitude, userDestination.place_id)
 
         //Find the nearest station to the user's destination to determine if it's too far from MARTA to even bother
 
@@ -162,7 +162,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTime, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination }, dispatch);
+  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);

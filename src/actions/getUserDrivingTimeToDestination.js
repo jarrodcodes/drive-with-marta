@@ -1,8 +1,8 @@
-export const getUserDrivingTime = 'getUserDrivingTime';
+export const getUserDrivingTimeToDestination = 'getUserDrivingTimeToDestination';
 
 let google = window.google;
 
-export function fetchDriveTime(latitude, longitude, destination) {
+export function fetchDriveTimeToDestination(latitude, longitude, destination) {
     return (dispatch, getState) => {
         let directionsService = new google.maps.DirectionsService();
 
@@ -17,14 +17,14 @@ export function fetchDriveTime(latitude, longitude, destination) {
             travelMode: 'DRIVING'
         }, (response, status) => {
             driveTime.push(response);
-            dispatch(updateDriveTime(driveTime));
+            dispatch(updateDriveTimeToDestination(driveTime));
         });
     }
 }
 
-export function updateDriveTime(driveTime) {
+export function updateDriveTimeToDestination(driveTime) {
     return {
-        type: getUserDrivingTime,
+        type: getUserDrivingTimeToDestination,
         payload: driveTime
     }
 }

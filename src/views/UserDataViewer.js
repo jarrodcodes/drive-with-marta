@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { fetchGPS } from '../actions/getUserLocation.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchDriveTime } from '../actions/getUserDrivingTime.js';
+import { fetchDriveTimeToDestination } from '../actions/getUserDrivingTimeToDestination.js';
 
 class UserDataViewer extends Component {
 
@@ -23,12 +23,12 @@ class UserDataViewer extends Component {
                 }
                 <br>
                 </br>
-                {self.props.DriveTime &&
-                    self.props.DriveTime.DriveTime &&
-                    self.props.DriveTime.DriveTime[0] &&
-                    self.props.DriveTime.DriveTime[0].status &&
-                    self.props.DriveTime.DriveTime[0].status === 'OK' &&
-                    'Your direct driving time is: ' + self.props.DriveTime.DriveTime[0].routes[0].legs[0].duration.text + '.'
+                {self.props.DriveTimeToDestination &&
+                    self.props.DriveTimeToDestination.DriveTimeToDestination &&
+                    self.props.DriveTimeToDestination.DriveTimeToDestination[0] &&
+                    self.props.DriveTimeToDestination.DriveTimeToDestination[0].status &&
+                    self.props.DriveTimeToDestination.DriveTimeToDestination[0].status === 'OK' &&
+                    'Your direct driving time is: ' + self.props.DriveTimeToDestination.DriveTimeToDestination[0].routes[0].legs[0].duration.text + '.'
                 }
                 <br>
                 </br>
