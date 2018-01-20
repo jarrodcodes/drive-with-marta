@@ -6,18 +6,40 @@ export function fetchColorOfSecondaryStation(primaryDirections) {
 
         let colorOfSecondaryStation = []
         let stepsInstructions = []
+        let steps = []
         let i = 0
-        if (primaryDirections != "BUS_PRESENT") {
 
-            for (i; i < primaryDirections.length; i++) {
-                stepsInstructions.push(primaryDirections[i].instructions)
+        if (primaryDirections != "BUS_PRESENT") {
+            console.log(primaryDirections, "primary directions")
+            let steps = primaryDirections[0].routes[0].legs[0].steps
+            console.log(steps, "steps instructions"
+        )
+            for (i; i < steps.length; i++) {
+                stepsInstructions.push(steps[i].instructions)
             }
 
             console.log(stepsInstructions, "primary steps")
 
-            let stationColorStep = stepsInstructions[stepsInstructions.length - 1]
+            let stationColors = stepsInstructions.filter(s => s.includes("Blue") || s.includes("Green") || s.includes("Red") || s.includes("Gold"))
 
-            console.log(stationColorStep, "color")
+            console.log(stationColors, "colors")
+            var isRed = stationColors[0].search("Red")
+            var isGreen = stationColors[0].search("Green")
+            var isGold = stationColors[0].search("Gold")
+            var isBlue = stationColors[0].search("Blue")
+
+            if (isRed > 0 ) {
+                colorOfSecondaryStation.push("Red")
+
+            } else if (isGreen > 0 ) {
+                colorOfSecondaryStation.push("Green")
+
+            } else if (isBlue > 0 ) {
+                colorOfSecondaryStation.push("Blue")
+
+            } else if (isGold > 0 ) {
+                colorOfSecondaryStation.push("Gold")
+            } 
 
             dispatch(updateColorOfSecondaryStation(colorOfSecondaryStation));
 
