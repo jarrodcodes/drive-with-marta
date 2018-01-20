@@ -39,3 +39,8 @@
 2018-01-20 11:43:24.632 EST [4220] LOG:  listening on IPv4 address "127.0.0.1", port 5432
 2018-01-20 11:43:24.710 EST [6940] LOG:  database system was shut down at 2018-01-20 11:34:44 EST
 2018-01-20 11:43:24.742 EST [4220] LOG:  database system is ready to accept connections
+2018-01-20 16:47:24.999 EST [4220] LOG:  received fast shutdown request
+2018-01-20 16:47:25.025 EST [4220] LOG:  aborting any active transactions
+2018-01-20 16:47:25.045 EST [4220] LOG:  worker process: logical replication launcher (PID 6924) exited with exit code 1
+2018-01-20 16:47:25.055 EST [8076] LOG:  shutting down
+2018-01-20 16:47:25.112 EST [4220] LOG:  database system is shut down

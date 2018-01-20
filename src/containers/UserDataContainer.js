@@ -14,10 +14,8 @@ class UserDataContainer extends Component {
     componentWillMount() {
         let self = this;
         this.setState({ Loading: true })
-        let geo_options = {
-            enableHighAccuracy: true
-        }
-        navigator.geolocation.getCurrentPosition((response, geo_options) => {
+
+        navigator.geolocation.getCurrentPosition((response) => {
             this.setState({ userLocation: response })
             self.props.fetchClosestStationToUser(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude)
             this.setState({ Loading: false })

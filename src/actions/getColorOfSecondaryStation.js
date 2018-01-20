@@ -37,6 +37,7 @@ export function fetchColorOfSecondaryStation(primaryDirections) {
 
             dispatch(updateColorOfSecondaryStation(colorOfSecondaryStation));
 
+
         }
     }
 }

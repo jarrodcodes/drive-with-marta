@@ -10,9 +10,41 @@ class UserDataViewer extends Component {
 
         let self = this;
         // console.log('I am UserDataViewer state', self.state);
-        // console.log('I am UserDataViewer props', self.props);
+        console.log('I am UserDataViewer props', self.props);
+
+        if (!self.props.MartaTimePrimary[0]) {
+            return (
+
+                <div>
+                    <h2>
+                        Welcome To Smarta-Commute! Let's find out if you should drive or take the train!
+                    </h2>
+                </div>
+            )
+        }
+
+        if (self.props.ClosestStationToDestination.ClosestStationToDestination) {
+            if (self.props.ClosestStationToDestination.ClosestStationToDestination[0] === "TOO_FAR") {
+
+                return (
+                    <div>
+                        Darn, your destination is too far from MARTA.
+                    </div>
+                )
+            }
+        }
+
+        if (self.props.MartaTimePrimary[0]) {
+
+            if (self.props.MartaTimePrimary[0][0] === "BUS_PRESENT") {
+
+                return ("Bus Present")
+            }
+        }
+
 
         return (
+            
             <div>
 
                 {self.props.ClosestStationToUser &&

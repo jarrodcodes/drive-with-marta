@@ -76,7 +76,7 @@ class Maps extends Component {
 
         //Calculate the transit time from the nearest MARTA station
 
-        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
+        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value, self.props.location.coords.latitude, self.props.location.coords.longitude)
 
         // Clear out the old markers.
 
@@ -123,7 +123,7 @@ class Maps extends Component {
 
     let self = this;
 
-    console.log('I am Maps props', this.props);
+    //console.log('I am Maps props', this.props);
     //console.log('I am Maps state', this.state);
 
     return (
@@ -147,7 +147,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation}, dispatch);
+  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);
