@@ -2,7 +2,8 @@ export const getMARTATravelTimeSecondary = 'getMARTATravelTimeSecondary';
 
 let google = window.google;
 
-export function fetchMARTATimeSecondary(station, destination, drivingTimeToStation) {
+export function fetchMARTATimeSecondary(station, destination, drivingTimeToStation, stationColor) {
+
     return (dispatch, getState) => {
 
         let directionsService = new google.maps.DirectionsService();
@@ -27,15 +28,14 @@ export function fetchMARTATimeSecondary(station, destination, drivingTimeToStati
                 }
                 //figure out if Google wants the user to take a bus, if so, driving is immediately the best option
                 let busTest = stepsInstructions.filter(s => s.includes("Bus"))
-            if (busTest.length > 0) {
-
-                martaTime.push("BUS_PRESENT")
+                if (busTest.length > 0) {
+                    martaTime.push("BUS_PRESENT")
+                }
+                else {
+                    martaTime.push(response);
+                }
+                dispatch(updateMARTATimeSecondary(martaTime));
             }
-            else {
-                martaTime.push(response);
-            }
-            dispatch(updateMARTATimeSecondary(martaTime));
-        }
         });
     }
 }

@@ -36,6 +36,7 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
                     martaTime.push(response);
                 }
                 dispatch(updateMARTATimePrimary(martaTime));
+                //send the MARTA travel info to this function to determine the station line closest to the destination
                 dispatch(fetchColorOfSecondaryStation(martaTime))
             }
         });
