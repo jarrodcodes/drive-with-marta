@@ -10,8 +10,7 @@ class UserDataViewer extends Component {
 
         let self = this;
         // console.log('I am UserDataViewer state', self.state);
-        console.log('I am UserDataViewer props', self.props);
-        let userDriveTime = self.props.DriveTime
+        // console.log('I am UserDataViewer props', self.props);
 
         return (
             <div>
