@@ -1,3 +1,5 @@
+import { fetchColorOfSecondaryStation } from '../actions/getColorOfSecondaryStation.js';
+
 export const getMARTATravelTimePrimary = 'getMARTATravelTimePrimary';
 
 let google = window.google;
@@ -34,6 +36,7 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
                     martaTime.push(response);
                 }
                 dispatch(updateMARTATimePrimary(martaTime));
+                dispatch(fetchColorOfSecondaryStation(martaTime))
             }
         });
     }

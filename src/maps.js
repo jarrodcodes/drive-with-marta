@@ -78,8 +78,6 @@ class Maps extends Component {
 
         self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value)
 
-        //self.props.fetchColorOfSecondaryStation(self.props.MartaTimePrimary)
-
         // Clear out the old markers.
 
         markers.forEach(function (marker) {
