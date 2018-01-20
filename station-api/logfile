@@ -70,3 +70,14 @@
 2018-01-20 16:55:35.439 EST [3028] LOG:  database system is ready to accept connections
 2018-01-20 16:56:06.553 EST [9376] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
 	
+2018-01-20 17:25:12.300 EST [10448] ERROR:  column stations.$lineColor does not exist at character 118
+2018-01-20 17:25:12.300 EST [10448] HINT:  Perhaps you meant to reference the column "stations.lineColor".
+2018-01-20 17:25:12.300 EST [10448] STATEMENT:  SELECT "id", "name", "placeID", "lineColor", "parking", "createdAt", "updatedAt" FROM "stations" AS "stations" WHERE "stations"."$lineColor" = '%Red%';
+2018-01-20 17:33:09.830 EST [9592] ERROR:  syntax error at or near "%" at character 45
+2018-01-20 17:33:09.830 EST [9592] STATEMENT:  SELECT * FROM stations WHERE lineColor like %Red%
+2018-01-20 17:34:28.114 EST [8940] ERROR:  syntax error at or near "%" at character 49
+2018-01-20 17:34:28.114 EST [8940] STATEMENT:  SELECT * FROM "stations" WHERE "lineColor" like %Red%
+2018-01-20 17:35:42.207 EST [10860] ERROR:  syntax error at or near "%" at character 45
+2018-01-20 17:35:42.207 EST [10860] STATEMENT:  SELECT * FROM stations WHERE lineColor like %Red%
+2018-01-20 17:37:42.280 EST [848] ERROR:  syntax error at or near "%" at character 45
+2018-01-20 17:37:42.280 EST [848] STATEMENT:  SELECT * FROM stations WHERE lineColor like %Red%

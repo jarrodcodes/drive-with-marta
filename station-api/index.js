@@ -63,49 +63,49 @@ StationList.sync({ force: true }).then(() => {
         return StationList.create({
             name: 'Five Points',
             placeID: 'ChIJQ-E6T4ED9YgRI3vsWO3wlBQ',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red, Blue, Green',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Peachtree Center',
             placeID: 'ChIJ3RLXaHgE9YgRStIII8XKcQ0',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Civic Center',
             placeID: 'ChIJRd4PW3oE9YgRgAv4i39SSt0',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'North Avenue',
             placeID: 'ChIJu65s0W4E9YgR1ZlcTtxARlw',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Midtown',
             placeID: 'ChIJdym9WF0E9YgRMBWDOd-dwzU',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Arts Center',
             placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Lindbergh Center',
             placeID: 'ChIJo8oZEMIF9YgRS35yQXEexwg',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
@@ -140,76 +140,76 @@ StationList.sync({ force: true }).then(() => {
         return StationList.create({
             name: 'Garnett',
             placeID: 'ChIJPwwYvYID9YgRXXJ3wGJtL9M',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'West End',
             placeID: 'ChIJH-cdwhQD9YgRPIgv1ebG-xg',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'Oakland City',
             placeID: 'ChIJ8avdoCcD9YgRWqnslIyLIRQ',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'Lakewood/Ft. McPherson',
             placeID: 'ChIJcYu_Qc8C9YgRiYo0eLC-9J4',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'East Point',
             placeID: 'ChIJQUcEhlQd9YgRpNc_8cVzvHA',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'College Park',
             placeID: 'ChIJszvd7bfi9IgRvSNLpVbZOWY',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'Airport',
             placeID: 'ChIJFwUs2M3i9IgR1SIEIQ8SwnQ',
-            lineColor: 'Gold',
+            lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Dome/GWCC/Philips Arena/CNN Center Station',
             placeID: 'ChIJ77wFoX8D9YgRtW_Y5jb5QFU',
-            lineColor: 'Blue',
+            lineColor: 'Blue, Green',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Vine City',
             placeID: 'ChIJ1zEIAX0D9YgR6oB4zm-cj0M',
-            lineColor: 'Blue',
+            lineColor: 'Blue, Green',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'Ashby',
             placeID: 'ChIJveUPJl4D9YgRd8HMkTVuy3Q',
-            lineColor: 'Blue',
+            lineColor: 'Blue, Green',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'West Lake',
-            placeID: 'ChIJreumB68c9YgRdQjlrSGdXag',
+            placeID: 'ChIJT9Oci64c9YgR2nJfyuy0rq4',
             lineColor: 'Blue',
             parking: true,
         })
@@ -223,29 +223,29 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Georgia State',
-            placeID: 'ChIJM_wogo8D9YgRJShSf2KlrnA',
-            lineColor: 'Blue',
+            placeID: 'ChIJDeNyEoUD9YgRQ_sRFQKliI0',
+            lineColor: 'Blue, Green',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'King Memorial',
             placeID: 'ChIJ0RsX5IwD9YgR6J2NIxeB5Yg',
-            lineColor: 'Blue',
+            lineColor: 'Blue, Green',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Inman Park/Reynoldstown',
-            placeID: 'ChIJpzs5yaoG9YgRASrnY_9FFlU',
-            lineColor: 'Blue',
+            placeID: 'ChIJeSkmSFUB9YgRJz1ToM8WTSk',
+            lineColor: 'Blue, Green',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'Edgewood/Candler Park',
             placeID: 'ChIJf36v3rMG9YgRAs64dcfYpe4',
-            lineColor: 'Blue',
+            lineColor: 'Blue, Green',
             parking: true,
         })
     }).then(() => {
@@ -326,7 +326,11 @@ app.get('/stationssecondbatch', function (req, res) {
 
 app.get('/blue', function (req, res) {
     StationList.findAll({
-        where: { lineColor: "Blue" }
+        where: {
+            lineColor: {
+              $like: "%Blue%"
+            }
+          }
     }).then(stations => {
         res.send(stations);
     })
@@ -334,7 +338,11 @@ app.get('/blue', function (req, res) {
 
 app.get('/green', function (req, res) {
     StationList.findAll({
-        where: { lineColor: "Green" }
+        where: {
+            lineColor: {
+              $like: "%Green%"
+            }
+          }
     }).then(stations => {
         res.send(stations);
     })
@@ -342,7 +350,11 @@ app.get('/green', function (req, res) {
 
 app.get('/red', function (req, res) {
     StationList.findAll({
-        where: { lineColor: "Red" }
+        where: {
+            lineColor: {
+              $like: "%Red%"
+            }
+          }
     }).then(stations => {
         res.send(stations);
     })
@@ -350,7 +362,11 @@ app.get('/red', function (req, res) {
 
 app.get('/gold', function (req, res) {
     StationList.findAll({
-        where: { lineColor: "Gold" }
+        where: {
+            lineColor: {
+              $like: "%Gold%"
+            }
+          }
     }).then(stations => {
         res.send(stations);
     })
