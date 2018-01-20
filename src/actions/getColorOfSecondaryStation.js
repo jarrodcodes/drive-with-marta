@@ -1,6 +1,8 @@
-export const getColorOfSecondaryStation = 'getColorOfSecondaryStation';
+import _ from 'lodash';
+import { fetchClosestStationOfPreferredLineToUser } from '../actions/getClosestStationOfPreferredLineToUser.js';
 
-export function fetchColorOfSecondaryStation(primaryDirections) {
+export const getColorOfSecondaryStation = 'getColorOfSecondaryStation';
+export function fetchColorOfSecondaryStation(primaryDirections, latitude, longitude) {
 
     return (dispatch, getState) => {
 
@@ -16,11 +18,13 @@ export function fetchColorOfSecondaryStation(primaryDirections) {
             }
 
             let stationColors = stepsInstructions.filter(s => s.includes("Blue") || s.includes("Green") || s.includes("Red") || s.includes("Gold"))
+            let stationColor = _.last(stationColors)
+            console.log(stationColor, "station color")
 
-            var isRed = stationColors[0].search("Red")
-            var isGreen = stationColors[0].search("Green")
-            var isGold = stationColors[0].search("Gold")
-            var isBlue = stationColors[0].search("Blue")
+            let isRed = stationColor.search("Red")
+            let isGreen = stationColor.search("Green")
+            let isGold = stationColor.search("Gold")
+            let isBlue = stationColor.search("Blue")
 
             if (isRed > 0) {
                 colorOfSecondaryStation.push("Red")
@@ -36,8 +40,7 @@ export function fetchColorOfSecondaryStation(primaryDirections) {
             }
 
             dispatch(updateColorOfSecondaryStation(colorOfSecondaryStation));
-
-
+            dispatch(fetchClosestStationOfPreferredLineToUser(latitude, longitude, colorOfSecondaryStation))
         }
     }
 }

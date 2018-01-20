@@ -9,10 +9,11 @@ let i = 0;
 let stationList = [];
 let stationPlacesList = [];
 let stationDriveTime = [];
-let closestStationToUser = [];
+let closestStationOfPreferredLineToUser = [];
 
 export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor) {
     return (dispatch, getState) => {
+        console.log(stationColor, "color being used")
         axios.get('http://localhost:3000' + '/' + stationColor).then((stations) => {
             stationList.push(stations)
         }).then(() => {
@@ -36,8 +37,8 @@ export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, st
                 });
             }
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
-                closestStationofPreferredLineToUser = stationDriveTime[0]
-                dispatch(updateClosestStationOfPreferredLineToUser(closestStationofPreferredLineToUser));
+                closestStationOfPreferredLineToUser = stationDriveTime[0]
+                dispatch(updateClosestStationOfPreferredLineToUser(closestStationOfPreferredLineToUser));
             }
         })
     }

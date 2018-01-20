@@ -44,3 +44,29 @@
 2018-01-20 16:47:25.045 EST [4220] LOG:  worker process: logical replication launcher (PID 6924) exited with exit code 1
 2018-01-20 16:47:25.055 EST [8076] LOG:  shutting down
 2018-01-20 16:47:25.112 EST [4220] LOG:  database system is shut down
+2018-01-20 16:54:04.779 EST [10908] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-20 16:54:04.780 EST [10908] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-20 16:54:04.861 EST [10060] LOG:  database system was shut down at 2018-01-20 16:47:25 EST
+2018-01-20 16:54:04.864 EST [10060] LOG:  invalid primary checkpoint record
+2018-01-20 16:54:04.864 EST [10060] LOG:  invalid secondary checkpoint record
+2018-01-20 16:54:04.864 EST [10060] PANIC:  could not locate a valid checkpoint record
+2018-01-20 16:54:05.004 EST [10908] LOG:  startup process (PID 10060) was terminated by exception 0xC0000409
+2018-01-20 16:54:05.004 EST [10908] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2018-01-20 16:54:05.004 EST [10908] LOG:  aborting startup due to startup process failure
+2018-01-20 16:54:05.009 EST [10908] LOG:  database system is shut down
+2018-01-20 16:54:16.347 EST [10936] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-20 16:54:16.348 EST [10936] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-20 16:54:16.449 EST [8008] LOG:  database system was shut down at 2018-01-20 16:47:25 EST
+2018-01-20 16:54:16.451 EST [8008] LOG:  invalid primary checkpoint record
+2018-01-20 16:54:16.451 EST [8008] LOG:  invalid secondary checkpoint record
+2018-01-20 16:54:16.451 EST [8008] PANIC:  could not locate a valid checkpoint record
+2018-01-20 16:54:16.515 EST [10936] LOG:  startup process (PID 8008) was terminated by exception 0xC0000409
+2018-01-20 16:54:16.515 EST [10936] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2018-01-20 16:54:16.515 EST [10936] LOG:  aborting startup due to startup process failure
+2018-01-20 16:54:16.521 EST [10936] LOG:  database system is shut down
+2018-01-20 16:55:35.286 EST [3028] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-20 16:55:35.287 EST [3028] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-20 16:55:35.395 EST [8912] LOG:  database system was shut down at 2018-01-20 16:55:25 EST
+2018-01-20 16:55:35.439 EST [3028] LOG:  database system is ready to accept connections
+2018-01-20 16:56:06.553 EST [9376] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	

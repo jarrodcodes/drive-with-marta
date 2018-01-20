@@ -4,7 +4,7 @@ export const getMARTATravelTimePrimary = 'getMARTATravelTimePrimary';
 
 let google = window.google;
 
-export function fetchMARTATimePrimary(station, destination, drivingTimeToStation) {
+export function fetchMARTATimePrimary(station, destination, drivingTimeToStation, latitude, longitude) {
     return (dispatch, getState) => {
 
         let directionsService = new google.maps.DirectionsService();
@@ -37,7 +37,7 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
                 }
                 dispatch(updateMARTATimePrimary(martaTime));
                 //send the MARTA travel info to this function to determine the station line closest to the destination
-                dispatch(fetchColorOfSecondaryStation(martaTime))
+                dispatch(fetchColorOfSecondaryStation(martaTime, latitude, longitude))
             }
         });
     }
