@@ -124,11 +124,6 @@ class Maps extends Component {
 
   render() {
 
-    let self = this;
-
-    //console.log('I am Maps props', this.props);
-    //console.log('I am Maps state', this.state);
-
     return (
       <div>
         <input id="pac-input" className="controls" type="text" placeholder="Where would you like to go?">
@@ -145,8 +140,6 @@ function mapStateToProps(state) {
     Destination: state.Destination,
     ClosestStationToUser: state.ClosestStationToUser,
     DrivingTimeToPrimaryStation: state.DrivingTimeToPrimaryStation,
-    MartaTimePrimary: state.MartaTimePrimary,
-    DrivingTimeToSecondaryStation: state.DrivingTimeToSecondaryStation
   };
 }
 

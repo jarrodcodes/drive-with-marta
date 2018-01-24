@@ -7,7 +7,7 @@ export function fetchMARTATimeSecondary(station, destination, drivingTimeToStati
     return (dispatch, getState) => {
         
         let directionsService = new google.maps.DirectionsService();
-        let currentTime = (new Date).getTime();
+        let currentTime = new Date().getTime();
         let adjustedTime = currentTime + drivingTimeToStation + 300000;
         let martaTime = [];
         directionsService.route({
