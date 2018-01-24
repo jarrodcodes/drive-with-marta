@@ -7,9 +7,6 @@ import { addDestination } from './actions/getUserDestination.js';
 import { fetchDriveTimeToDestination } from './actions/getUserDrivingTimeToDestination.js';
 import { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
 import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination.js';
-import { fetchColorOfSecondaryStation } from './actions/getColorOfSecondaryStation.js';
-import { fetchMARTATimeSecondary } from './actions/getMARTATravelTimeSecondary.js';
-import { fetchDrivingTimeToSecondaryStation } from './actions/getUserDrivingTimeToSecondaryStation.js';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -144,7 +141,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation, fetchMARTATimeSecondary, fetchDrivingTimeToSecondaryStation }, dispatch);
+  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);
