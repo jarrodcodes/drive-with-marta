@@ -48,7 +48,7 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Sandy Springs',
-            placeID: 'ChIJo9Awq1UJ9YgRo3QWdPhCExI',
+            placeID: 'ChIJ60W2TVQJ9YgRTcTkt6utgog',
             lineColor: 'Red',
             parking: true,
         })
@@ -90,14 +90,14 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Midtown',
-            placeID: 'ChIJdym9WF0E9YgRMBWDOd-dwzU',
+            placeID: 'ChIJVWLyW10E9YgRd9EAsFw8fXY',
             lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'Arts Center',
-            placeID: 'ChIJ6XSS4FoE9YgRRKoJM-ZX5Vw',
+            placeID: 'ChIJ6yzJ31oE9YgR7hZJdBvUUg0',
             lineColor: 'Gold, Red',
             parking: false,
         })
@@ -139,21 +139,21 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Garnett',
-            placeID: 'ChIJPwwYvYID9YgRXXJ3wGJtL9M',
+            placeID: 'ChIJqeJICHgD9YgRKqFxaZdhtgw',
             lineColor: 'Gold, Red',
             parking: false,
         })
     }).then(() => {
         return StationList.create({
             name: 'West End',
-            placeID: 'ChIJH-cdwhQD9YgRPIgv1ebG-xg',
+            placeID: 'ChIJi00l8RQD9YgRvcizUsN8StI',
             lineColor: 'Gold, Red',
             parking: true,
         })
     }).then(() => {
         return StationList.create({
             name: 'Oakland City',
-            placeID: 'ChIJ8avdoCcD9YgRWqnslIyLIRQ',
+            placeID: 'ChIJaRrKuycD9YgR7z-dBv9V2Bc',
             lineColor: 'Gold, Red',
             parking: true,
         })
@@ -167,7 +167,7 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'East Point',
-            placeID: 'ChIJQUcEhlQd9YgRpNc_8cVzvHA',
+            placeID: 'ChIJe45LZVMd9YgRE__2cWP0hOA',
             lineColor: 'Gold, Red',
             parking: true,
         })
@@ -195,7 +195,7 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Vine City',
-            placeID: 'ChIJ1zEIAX0D9YgR6oB4zm-cj0M',
+            placeID: 'ChIJ9wfss30D9YgR225WGSp4vL4',
             lineColor: 'Blue, Green',
             parking: true,
         })
@@ -244,7 +244,7 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Edgewood/Candler Park',
-            placeID: 'ChIJf36v3rMG9YgRAs64dcfYpe4',
+            placeID: 'ChIJBx0a57MG9YgR3nvK8fy50a8',
             lineColor: 'Blue, Green',
             parking: true,
         })
@@ -272,7 +272,7 @@ StationList.sync({ force: true }).then(() => {
     }).then(() => {
         return StationList.create({
             name: 'Kensington',
-            placeID: 'ChIJAY-yWuqp9YgRmS8s6ru_uRw',
+            placeID: 'ChIJJ_6DVuqp9YgRyzrwnWh0n3g',
             lineColor: 'Blue',
             parking: true,
         })

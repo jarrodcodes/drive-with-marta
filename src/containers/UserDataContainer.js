@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchDriveTimeToDestination } from '../actions/getUserDrivingTimeToDestination.js';
 import { fetchClosestStationToUser } from '../actions/getClosestStationToUser.js';
-import { fetchDrivingTimeToNearestStation } from '../actions/getUserDrivingTimeToStation.js';
+import { fetchDrivingTimeToNearestStation } from '../actions/getUserDrivingTimeToPrimaryStation.js';
 import Maps from '../maps.js';
 import '../maps.css';
 

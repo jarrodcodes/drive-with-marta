@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
-import { fetchDriveTimeToDestination } from './actions/getUserDrivingTimeToDestination.js';
+
 import { addDestination } from './actions/getUserDestination.js';
+import { fetchDriveTimeToDestination } from './actions/getUserDrivingTimeToDestination.js';
 import { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
 import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination.js';
 import { fetchColorOfSecondaryStation } from './actions/getColorOfSecondaryStation.js';
+import { fetchMARTATimeSecondary } from './actions/getMARTATravelTimeSecondary.js';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -74,9 +76,9 @@ class Maps extends Component {
 
         self.props.fetchClosestStationtoDestination(userDestination.place_id)
 
-        //Calculate the transit time from the nearest MARTA station
+        //Calculate the transit time from the nearest MARTA station, and begin the loop to determine the secondary MARTA option as well
 
-        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value, self.props.location.coords.latitude, self.props.location.coords.longitude)
+        self.props.fetchMARTATimePrimary(self.props.ClosestStationToUser.ClosestStationToUser.stationAddress, userDestination.place_id, self.props.DrivingTimeToPrimaryStation.DrivingTimeToNearestStation[0].routes[0].legs[0].duration.value, self.props.location.coords.latitude, self.props.location.coords.longitude)
 
         // Clear out the old markers.
 
@@ -141,13 +143,13 @@ function mapStateToProps(state) {
   return {
     Destination: state.Destination,
     ClosestStationToUser: state.ClosestStationToUser,
-    DrivingTimeToStation: state.DrivingTimeToStation,
+    DrivingTimeToPrimaryStation: state.DrivingTimeToPrimaryStation,
     MartaTimePrimary: state.MartaTimePrimary
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation }, dispatch);
+  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation, fetchMARTATimeSecondary }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);

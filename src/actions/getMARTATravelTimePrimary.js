@@ -12,6 +12,10 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
         let adjustedTime = currentTime + drivingTimeToStation + 300000;
         let martaTime = [];
 
+        console.log(station, "station1")
+        console.log(destination, "destination1")
+        console.log(drivingTimeToStation, "drivingtime1")
+
         directionsService.route({
             origin: station + '',
             destination: { placeId: destination + '' },
@@ -37,7 +41,7 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
                 }
                 dispatch(updateMARTATimePrimary(martaTime));
                 //send the MARTA travel info to this function to determine the station line closest to the destination
-                dispatch(fetchColorOfSecondaryStation(martaTime, latitude, longitude))
+                dispatch(fetchColorOfSecondaryStation(martaTime, latitude, longitude, destination))
             }
         });
     }

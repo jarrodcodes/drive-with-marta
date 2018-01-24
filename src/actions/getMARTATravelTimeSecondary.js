@@ -2,23 +2,28 @@ export const getMARTATravelTimeSecondary = 'getMARTATravelTimeSecondary';
 
 let google = window.google;
 
-export function fetchMARTATimeSecondary(station, destination, drivingTimeToStation, stationColor) {
+export function fetchMARTATimeSecondary(station, destination, drivingTimeToStation) {
 
     return (dispatch, getState) => {
+        
+        console.log(station.stationAddress, "station2")
+        console.log(destination, "destination2")
+        console.log(drivingTimeToStation, "drivingtime2")
 
         let directionsService = new google.maps.DirectionsService();
         let currentTime = (new Date).getTime();
         let adjustedTime = currentTime + drivingTimeToStation + 300000;
         let martaTime = [];
-
         directionsService.route({
-            origin: station + '',
+            origin: station.stationAddress + '',
             destination: { placeId: destination + '' },
             drivingOptions: {
                 departureTime: new Date(adjustedTime)
             },
             travelMode: 'TRANSIT'
         }, (response, status) => {
+            console.log(response, "response Mickey")
+
             if (status === "OK") {
                 let i = 0
                 let stepsResponse = response.routes[0].legs[0].steps

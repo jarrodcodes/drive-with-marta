@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { fetchClosestStationOfPreferredLineToUser } from '../actions/getClosestStationOfPreferredLineToUser.js';
 
 export const getColorOfSecondaryStation = 'getColorOfSecondaryStation';
-export function fetchColorOfSecondaryStation(primaryDirections, latitude, longitude) {
+export function fetchColorOfSecondaryStation(primaryDirections, latitude, longitude, destination) {
 
     return (dispatch, getState) => {
 
@@ -10,7 +10,8 @@ export function fetchColorOfSecondaryStation(primaryDirections, latitude, longit
         let stepsInstructions = []
         let steps = []
         let i = 0
-
+        console.log(destination, "getColorOfSecondaryStation destination")
+        let destinationRepeat = destination;
         if (primaryDirections != "BUS_PRESENT") {
             let steps = primaryDirections[0].routes[0].legs[0].steps
             for (i; i < steps.length; i++) {
@@ -40,7 +41,7 @@ export function fetchColorOfSecondaryStation(primaryDirections, latitude, longit
             }
 
             dispatch(updateColorOfSecondaryStation(colorOfSecondaryStation));
-            dispatch(fetchClosestStationOfPreferredLineToUser(latitude, longitude, colorOfSecondaryStation))
+            dispatch(fetchClosestStationOfPreferredLineToUser(latitude, longitude, colorOfSecondaryStation, destinationRepeat))
         }
     }
 }

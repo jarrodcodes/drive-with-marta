@@ -1,3 +1,4 @@
+import { fetchMARTATimeSecondary } from '../actions/getMARTATravelTimeSecondary.js';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -11,9 +12,9 @@ let stationPlacesList = [];
 let stationDriveTime = [];
 let closestStationOfPreferredLineToUser = [];
 
-export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor) {
+export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor, destination) {
     return (dispatch, getState) => {
-        console.log(stationColor, "color being used")
+        let destinationRepeat = destination;
         axios.get('http://localhost:3000' + '/' + stationColor).then((stations) => {
             stationList.push(stations)
         }).then(() => {
@@ -39,6 +40,7 @@ export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, st
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
                 closestStationOfPreferredLineToUser = stationDriveTime[0]
                 dispatch(updateClosestStationOfPreferredLineToUser(closestStationOfPreferredLineToUser));
+                dispatch(fetchMARTATimeSecondary(closestStationOfPreferredLineToUser, destinationRepeat, stationDriveTime))
             }
         })
     }
