@@ -15,13 +15,11 @@ let closestStationOfPreferredLineToUser = [];
 export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor, destination) {
     return (dispatch, getState) => {
         let destinationRepeat = destination;
-        axios.get('http://localhost:3000' + '/' + stationColor).then((stations) => {
+        axios.get('http://localhost:3000/' + stationColor).then((stations) => {
             stationList.push(stations)
         }).then(() => {
-            //console.log(stationList)
             for (i = 0; i < stationList[0].data.length; i++) {
                 stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
-                //console.log(stationPlacesList)
             }
         }).then(() => {
             let origin = new google.maps.LatLng(latitude, longitude);

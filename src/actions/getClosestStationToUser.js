@@ -1,5 +1,6 @@
 import axios from 'axios';
 import _ from 'lodash';
+import { fetchDrivingTimeToNearestStation } from './getUserDrivingTimeToPrimaryStation';
 
 export const getClosestStationToUser = 'getClosestStationToUser';
 
@@ -35,7 +36,8 @@ export function fetchClosestStationToUser(latitude, longitude) {
                 }
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
                 closestStationToUser = stationDriveTime[0]
-                dispatch(updateClosestStationToUser(closestStationToUser));
+                dispatch(updateClosestStationToUser(closestStationToUser))
+                dispatch(fetchDrivingTimeToNearestStation(latitude, longitude, closestStationToUser))
             }
         })
     }

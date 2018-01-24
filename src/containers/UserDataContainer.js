@@ -50,7 +50,8 @@ function mapStateToProps(state) {
         ClosestStationToUser: state.ClosestStationToUser,
         ClosestStationToDestination: state.ClosestStationToDestination,
         DrivingTimeToStation: state.DrivingTimeToStation,
-        MartaTimePrimary: state.MartaTimePrimary
+        MartaTimePrimary: state.MartaTimePrimary,
+        MartaTimeSecondary: state.MartaTimeSecondary
     };
 }
 

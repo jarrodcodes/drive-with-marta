@@ -18,8 +18,6 @@ export function fetchMARTATimeSecondary(station, destination, drivingTimeToStati
             },
             travelMode: 'TRANSIT'
         }, (response, status) => {
-            console.log(response, "response Mickey")
-
             if (status === "OK") {
                 let i = 0
                 let stepsResponse = response.routes[0].legs[0].steps

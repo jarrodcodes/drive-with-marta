@@ -19,8 +19,6 @@ export function fetchDrivingTimeToSecondaryStation(latitude, longitude, station,
                     destination: station.stationAddress,
                     travelMode: 'DRIVING'
                 }, (response, status) => {
-                    console.log(status, "mickey status")
-                    console.log(response, "mickey response")
                     driveTime.push(response);
                     if (status === 'OK') {
                     dispatch(updateDrivingTimeToSecondaryStation(driveTime))

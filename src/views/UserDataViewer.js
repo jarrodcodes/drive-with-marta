@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { fetchGPS } from '../actions/getUserLocation.js';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchDriveTimeToDestination } from '../actions/getUserDrivingTimeToDestination.js';
 
 class UserDataViewer extends Component {
 

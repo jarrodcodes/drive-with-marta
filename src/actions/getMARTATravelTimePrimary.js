@@ -8,13 +8,9 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
     return (dispatch, getState) => {
 
         let directionsService = new google.maps.DirectionsService();
-        let currentTime = (new Date).getTime();
+        let currentTime =(new Date).getTime();
         let adjustedTime = currentTime + drivingTimeToStation + 300000;
         let martaTime = [];
-
-        console.log(station, "station1")
-        console.log(destination, "destination1")
-        console.log(drivingTimeToStation, "drivingtime1")
 
         directionsService.route({
             origin: station + '',

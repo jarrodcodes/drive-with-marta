@@ -8,11 +8,10 @@ export function fetchColorOfSecondaryStation(primaryDirections, latitude, longit
 
         let colorOfSecondaryStation = []
         let stepsInstructions = []
-        let steps = []
         let i = 0
         console.log(destination, "getColorOfSecondaryStation destination")
         let destinationRepeat = destination;
-        if (primaryDirections != "BUS_PRESENT") {
+        if (primaryDirections !== "BUS_PRESENT") {
             let steps = primaryDirections[0].routes[0].legs[0].steps
             for (i; i < steps.length; i++) {
                 stepsInstructions.push(steps[i].instructions)
