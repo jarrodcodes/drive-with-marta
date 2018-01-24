@@ -9,6 +9,7 @@ import { fetchMARTATimePrimary } from './actions/getMARTATravelTimePrimary.js';
 import { fetchClosestStationtoDestination } from './actions/getClosestStationToDestination.js';
 import { fetchColorOfSecondaryStation } from './actions/getColorOfSecondaryStation.js';
 import { fetchMARTATimeSecondary } from './actions/getMARTATravelTimeSecondary.js';
+import { fetchDrivingTimeToSecondaryStation } from './actions/getUserDrivingTimeToSecondaryStation.js';
 
 let google = window.google; //needed so that React will accept global values from the <script> tag
 
@@ -144,12 +145,13 @@ function mapStateToProps(state) {
     Destination: state.Destination,
     ClosestStationToUser: state.ClosestStationToUser,
     DrivingTimeToPrimaryStation: state.DrivingTimeToPrimaryStation,
-    MartaTimePrimary: state.MartaTimePrimary
+    MartaTimePrimary: state.MartaTimePrimary,
+    DrivingTimeToSecondaryStation: state.DrivingTimeToSecondaryStation
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation, fetchMARTATimeSecondary }, dispatch);
+  return bindActionCreators({ fetchDriveTimeToDestination, addDestination, fetchMARTATimePrimary, fetchClosestStationtoDestination, fetchColorOfSecondaryStation, fetchMARTATimeSecondary, fetchDrivingTimeToSecondaryStation }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Maps);

@@ -1,4 +1,4 @@
-import { fetchMARTATimeSecondary } from '../actions/getMARTATravelTimeSecondary.js';
+import { fetchDrivingTimeToSecondaryStation } from '../actions/getUserDrivingTimeToSecondaryStation.js';
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -39,8 +39,8 @@ export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, st
             }
                 stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
                 closestStationOfPreferredLineToUser = stationDriveTime[0]
-                dispatch(updateClosestStationOfPreferredLineToUser(closestStationOfPreferredLineToUser));
-                dispatch(fetchMARTATimeSecondary(closestStationOfPreferredLineToUser, destinationRepeat, stationDriveTime))
+                dispatch(updateClosestStationOfPreferredLineToUser(closestStationOfPreferredLineToUser))
+                dispatch(fetchDrivingTimeToSecondaryStation(latitude, longitude, closestStationOfPreferredLineToUser, destinationRepeat))
             }
         })
     }
