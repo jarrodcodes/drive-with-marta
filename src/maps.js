@@ -39,12 +39,12 @@ class Maps extends Component {
 
       let input = document.getElementById('pac-input');
       
-      let autoComplete = new google.maps.places.Autocomplete(input, + 'GA');
+      let searchBox = new google.maps.places.SearchBox(input);
 
       // Bias the Autocomplete results towards current map's viewport.
 
       map.addListener('bounds_changed', function () {
-        autoComplete.setBounds(map.getBounds());
+        searchBox.setBounds(map.getBounds());
       });
 
       let markers = [];
@@ -52,8 +52,8 @@ class Maps extends Component {
       // Listen for the event fired when the user selects a prediction and retrieve
       // more details for that place.
 
-      autoComplete.addListener('places_changed', function () {
-        let places = autoComplete.getPlaces();
+      searchBox.addListener('places_changed', function () {
+        let places = searchBox.getPlaces();
 
         if (places.length === 0) {
           return;

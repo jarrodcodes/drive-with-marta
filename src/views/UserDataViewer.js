@@ -1,31 +1,37 @@
 import React, { Component } from 'react';
+import TravelResult from './travelresult.js'
+import '../userdataviewer.css';
 
 class UserDataViewer extends Component {
 
     render() {
+
 
         let self = this;
         // console.log('I am UserDataViewer state', self.state);
         console.log('I am UserDataViewer props', self.props);
 
         if (!self.props.MartaTimePrimary[0]) {
+
             return (
 
                 <div>
-                    <h2>
-                        Welcome To Smarta-Commute! Let's find out if you should drive or take the train!
-                    </h2>
+                    <TravelResult name= {"Jarrod"}/>
+                    <TravelResult />
+                    <TravelResult />
                 </div>
+
             )
         }
 
         if (self.props.ClosestStationToDestination.ClosestStationToDestination) {
+
             if (self.props.ClosestStationToDestination.ClosestStationToDestination[0] === "TOO_FAR") {
 
                 return (
                     <div>
                         Darn, your destination is too far from MARTA.
-                    </div>
+</div>
                 )
             }
         }
@@ -40,7 +46,7 @@ class UserDataViewer extends Component {
 
 
         return (
-            
+
             <div>
 
                 {self.props.ClosestStationToUser &&

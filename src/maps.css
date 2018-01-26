@@ -1,12 +1,19 @@
 #map {
-    height: 500px;
-    width: 100%;
-    display: flex;
-    padding: 0
-   }
+height: 500px;
+width: 100%;
+display: flex;
+padding: 0
+}
 
-   .controls {
-    width: 50%;
-    position: relative;
-    align-content: center;
-   }
+.controls {
+width: 50%;
+position: relative;
+align-content: center;
+}
+
+#pac-input {
+max-width: 50%;
+text-align: center;
+margin-left: 25vw;
+margin-bottom: 1%;
+}
