@@ -12,8 +12,7 @@ align-content: center;
 }
 
 #pac-input {
-max-width: 50%;
+width: 100%;
 text-align: center;
-margin-left: 25vw;
 margin-bottom: 1%;
 }

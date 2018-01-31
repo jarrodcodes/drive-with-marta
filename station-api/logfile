@@ -86,3 +86,7 @@
 2018-01-20 18:19:55.746 EST [3028] LOG:  worker process: logical replication launcher (PID 6688) exited with exit code 1
 2018-01-20 18:19:55.754 EST [11120] LOG:  shutting down
 2018-01-20 18:19:55.821 EST [3028] LOG:  database system is shut down
+2018-01-27 21:02:45.932 EST [12164] LOG:  listening on IPv6 address "::1", port 5432
+2018-01-27 21:02:45.934 EST [12164] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-01-27 21:02:46.275 EST [5212] LOG:  database system was shut down at 2018-01-25 21:17:04 EST
+2018-01-27 21:02:46.699 EST [12164] LOG:  database system is ready to accept connections

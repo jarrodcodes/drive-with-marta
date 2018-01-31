@@ -17,8 +17,6 @@ class UserDataViewer extends Component {
 
                 <div>
                     <TravelResult name= {"Jarrod"}/>
-                    <TravelResult />
-                    <TravelResult />
                 </div>
 
             )
