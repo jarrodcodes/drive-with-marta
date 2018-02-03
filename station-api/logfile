@@ -90,3 +90,9 @@
 2018-01-27 21:02:45.934 EST [12164] LOG:  listening on IPv4 address "127.0.0.1", port 5432
 2018-01-27 21:02:46.275 EST [5212] LOG:  database system was shut down at 2018-01-25 21:17:04 EST
 2018-01-27 21:02:46.699 EST [12164] LOG:  database system is ready to accept connections
+2018-01-30 20:16:51.021 EST [12164] LOG:  received fast shutdown request
+2018-01-30 20:16:51.029 EST [12164] LOG:  aborting any active transactions
+2018-01-30 20:16:51.146 EST [6248] FATAL:  terminating autovacuum process due to administrator command
+2018-01-30 20:16:51.148 EST [12164] LOG:  worker process: logical replication launcher (PID 11920) exited with exit code 1
+2018-01-30 20:16:51.160 EST [10328] LOG:  shutting down
+2018-01-30 20:16:51.252 EST [12164] LOG:  database system is shut down
