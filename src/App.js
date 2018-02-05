@@ -5,6 +5,7 @@
       Route,
       Link
     } from 'react-router-dom'
+    import './App.css';
 
     class App extends Component {
 
@@ -15,35 +16,19 @@
             <div>
               <nav className="navbar navbar-expand-md bg-primary navbar-dark">
                 <div className="container">
-                  <a className="navbar-brand" href="#"><i className="fa d-inline fa-lg fa-train"></i><b>Smarta-Commute</b></a>
-                  <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span className="navbar-toggler-icon"></span> </button>
-                  <div className="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+                  <a className="navbar-brand" href="/"><i className="fa d-inline fa-lg fa-train"></i><b className = "app-title">Smarta-Commute</b></a>
                     <ul className="navbar-nav">
                       <li className="nav-item">
-                        <a className="nav-link" href="#"><i className="fa d-inline fa-lg fa-bookmark-o"></i> Bookmarks</a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="#"><i className="fa d-inline fa-lg fa-envelope-o"></i> Contacts</a>
+                        <a className="nav-link" href="/about"><i className="fa d-inline fa-lg"></i>About</a>
                       </li>
                     </ul>
-                    <a className="btn navbar-btn ml-2 text-white btn-secondary"><i className="fa d-inline fa-lg fa-user-circle-o"></i> Sign in</a>
                   </div>
-                </div>
               </nav>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/topics">Topics</Link></li>
-              </ul>
-              <hr />
-
               <Route exact path="/" component={UserDataContainer} />
-
             </div>
-
           </Router>
 
-          <div className="pt-5 text-white bg-primary">
+          <div className="pt-5 text-white bg-primary footer">
             <div className="container">
               <div className="row">
                 <div className="col-md-9">

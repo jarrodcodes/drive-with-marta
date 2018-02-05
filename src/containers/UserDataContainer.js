@@ -28,9 +28,9 @@ class UserDataContainer extends Component {
 
     render() {
         let self = this;
-        // console.log(self.state, 'state')
+         console.log(self.props, 'props')
         return (
-            <div>
+            <div className>
                 <UserDataViewer {...self.props} />
                 {
                     this.state.Loading === false && this.state.userLocation &&
@@ -48,9 +48,9 @@ function mapStateToProps(state) {
         DriveTimeToDestination: state.DriveTimeToDestination,
         ClosestStationToUser: state.ClosestStationToUser,
         ClosestStationToDestination: state.ClosestStationToDestination,
-        DrivingTimeToStation: state.DrivingTimeToStation,
-        MartaTimePrimary: state.MartaTimePrimary,
-        MartaTimeSecondary: state.MartaTimeSecondary
+        DrivingTimeToPrimaryStation: state.DrivingTimeToPrimaryStation,
+        MartaTravelTimePrimary: state.MartaTravelTimePrimary,
+        MartaTravelTimeSecondary: state.MartaTravelTimeSecondary
     };
 }
 

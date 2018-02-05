@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const stationList = new Sequelize("postgres://localhost:5432/smarta-commute");
+const stationList = new Sequelize("postgres://jarrod_young@localhost:5432/smarta-commute");
 
 const StationList = stationList.define('stations', {
     name: {

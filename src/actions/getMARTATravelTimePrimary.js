@@ -29,12 +29,7 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
                 }
                 //figure out if Google wants the user to take a bus, if so, driving is immediately the best option
                 let busTest = stepsInstructions.filter(s => s.includes("Bus"))
-                if (busTest.length > 0) {
-                    martaTime.push("BUS_PRESENT")
-                }
-                else {
                     martaTime.push(response);
-                }
                 dispatch(updateMARTATimePrimary(martaTime));
                 //send the MARTA travel info to this function to determine the station line closest to the destination
                 dispatch(fetchColorOfSecondaryStation(martaTime, latitude, longitude, destination))

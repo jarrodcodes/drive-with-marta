@@ -1,8 +1,6 @@
 #map {
 height: 500px;
-width: 100%;
-display: flex;
-padding: 0
+overflow: hidden
 }
 
 .controls {
