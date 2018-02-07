@@ -5,7 +5,15 @@ let google = window.google;
 export function fetchMARTATimeSecondary(station, destination, drivingTimeToStation) {
 
     return (dispatch, getState) => {
-        
+
+        let millisecondsToWait = 1000;
+
+        setTimeout(function () {
+
+
+        console.log(station, "secondary station")
+        console.log(destination, "secondary destination")
+        console.log(drivingTimeToStation, "secondary driving")
         let directionsService = new google.maps.DirectionsService();
         let currentTime = new Date().getTime();
         let adjustedTime = currentTime + drivingTimeToStation + 300000;
@@ -18,6 +26,7 @@ export function fetchMARTATimeSecondary(station, destination, drivingTimeToStati
             },
             travelMode: 'TRANSIT'
         }, (response, status) => {
+            console.log(status, "secondary response")
             if (status === "OK") {
                 let i = 0
                 let stepsResponse = response.routes[0].legs[0].steps
@@ -27,16 +36,13 @@ export function fetchMARTATimeSecondary(station, destination, drivingTimeToStati
                 }
                 //figure out if Google wants the user to take a bus, if so, driving is immediately the best option
                 let busTest = stepsInstructions.filter(s => s.includes("Bus"))
-                if (busTest.length > 0) {
-                    martaTime.push("BUS_PRESENT")
-                }
-                else {
                     martaTime.push(response);
-                }
+                    console.log(response, "secondary marta")
                 dispatch(updateMARTATimeSecondary(martaTime));
             }
-        });
-    }
+        })
+    }, millisecondsToWait)
+}
 }
 
 export function updateMARTATimeSecondary(martaTime) {

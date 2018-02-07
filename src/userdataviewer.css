@@ -3,3 +3,13 @@ text-align: center;
 background-color: white;
 color: black;
 }
+
+.Loading {
+    text-align: center;
+}
+
+.card-deck{
+    padding-top: 10px;
+    max-width: 90%;
+    margin: auto;
+}

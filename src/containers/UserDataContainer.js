@@ -28,9 +28,9 @@ class UserDataContainer extends Component {
 
     render() {
         let self = this;
-         console.log(self.props, 'props')
+         console.log(self.props, 'app props')
         return (
-            <div className>
+            <div>
                 <UserDataViewer {...self.props} />
                 {
                     this.state.Loading === false && this.state.userLocation &&
