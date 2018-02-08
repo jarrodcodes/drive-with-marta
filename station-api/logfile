@@ -104,3 +104,20 @@
 2018-02-06 18:50:27.473 EST [11520] LOG:  invalid record length at 0/1995A90: wanted 24, got 0
 2018-02-06 18:50:27.473 EST [11520] LOG:  redo done at 0/1995A58
 2018-02-06 18:50:27.549 EST [11344] LOG:  database system is ready to accept connections
+2018-02-06 21:56:01.918 EST [11344] LOG:  received fast shutdown request
+2018-02-06 21:56:01.930 EST [11344] LOG:  aborting any active transactions
+2018-02-06 21:56:01.947 EST [11344] LOG:  worker process: logical replication launcher (PID 8200) exited with exit code 1
+2018-02-06 21:56:01.959 EST [12164] LOG:  shutting down
+2018-02-06 21:56:02.029 EST [11344] LOG:  database system is shut down
+2018-02-07 16:22:09.370 EST [9020] LOG:  listening on IPv6 address "::1", port 5432
+2018-02-07 16:22:09.371 EST [9020] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-02-07 16:22:09.486 EST [10552] LOG:  database system was shut down at 2018-02-06 21:56:01 EST
+2018-02-07 16:22:09.530 EST [9020] LOG:  database system is ready to accept connections
+2018-02-07 16:32:08.733 EST [1252] LOG:  listening on IPv6 address "::1", port 5432
+2018-02-07 16:32:08.735 EST [1252] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-02-07 16:32:09.013 EST [6344] LOG:  database system was interrupted; last known up at 2018-02-07 16:27:13 EST
+2018-02-07 16:32:16.609 EST [6344] LOG:  database system was not properly shut down; automatic recovery in progress
+2018-02-07 16:32:16.625 EST [6344] LOG:  redo starts at 0/19E3AA8
+2018-02-07 16:32:16.625 EST [6344] LOG:  invalid record length at 0/19E3B88: wanted 24, got 0
+2018-02-07 16:32:16.626 EST [6344] LOG:  redo done at 0/19E3B50
+2018-02-07 16:32:17.068 EST [1252] LOG:  database system is ready to accept connections

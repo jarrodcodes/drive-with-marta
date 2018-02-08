@@ -8,6 +8,8 @@
     "node-sass-chokidar": "0.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-logger": "^1.1.0",
+    "react-logger-component": "^1.0.8",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",

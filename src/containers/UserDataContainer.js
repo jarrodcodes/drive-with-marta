@@ -49,6 +49,7 @@ function mapStateToProps(state) {
         ClosestStationToUser: state.ClosestStationToUser,
         ClosestStationToDestination: state.ClosestStationToDestination,
         DrivingTimeToPrimaryStation: state.DrivingTimeToPrimaryStation,
+        DrivingTimeToSecondaryStation: state.DrivingTimeToSecondaryStation,
         MartaTravelTimePrimary: state.MartaTravelTimePrimary,
         MartaTravelTimeSecondary: state.MartaTravelTimeSecondary
     };

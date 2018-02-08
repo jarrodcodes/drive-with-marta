@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import TravelResult from './travelresult.js'
+import TravelResultCar from './travelresultcar.js';
+import TravelResultHybrid from './travelresulthybrid.js';
 import '../userdataviewer.css';
+import TravelResultMarta from './travelresultmarta.js';
+
 
 class UserDataViewer extends Component {
 
@@ -21,9 +24,9 @@ class UserDataViewer extends Component {
                                     <div className="card-deck">
                                     <h3>
                                         </h3>
-                                    <TravelResult {...self.props.DriveTimeToDestination} name={'Travel Time By Car)'} />
-                                    <TravelResult {...self.props.DriveTimeToDestination} name={'Travel Time By Car)'} />
-                                    <TravelResult {...self.props.DriveTimeToDestination} name={'Travel Time By Car)'} />
+                                    <TravelResultCar {...self.props.DriveTimeToDestination} name={'Travel Time By Car'} />
+                                    <TravelResultHybrid {...self.props} name={'If you first drive to Marta, then take the train)'} />
+                                    <TravelResultMarta {...self.props} name={'Travel Time By Marta (Including the bus)'} />
                                     </div>
                                 )
                             }
