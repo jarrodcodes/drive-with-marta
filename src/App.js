@@ -1,5 +1,6 @@
     import React, { Component } from 'react';
     import UserDataContainer from './containers/UserDataContainer.js';
+    import About from './containers/about.js';
     import {
       BrowserRouter as Router,
       Route,
@@ -24,7 +25,8 @@
                     </ul>
                   </div>
               </nav>
-              <Route exact path="/" component={UserDataContainer} />
+              <Route exact path = "/" component={UserDataContainer} />
+              <Route exact path = "/about" component={About} />
             </div>
           </Router>
 
