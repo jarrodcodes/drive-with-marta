@@ -4,19 +4,28 @@ background-color: white;
 color: black;
 }
 
-.Loading {
-    text-align: center;
+.loader {
+min-height: 2000px;
 }
 
 .card-deck {
-    padding-top: 10px;
-    max-width: 90%;
-    margin: auto;
+padding-top: 10px;
+max-width: 90%;
+margin: auto;
+padding-bottom: 10px;
 }
 
 .card {
 }
 
 .results-text {
-    text-align: center;
+padding-top: 10px;
+text-align: center;
+max-width: 50%;
+margin: auto;
+}
+
+.btn-primary {
+position: absolute;
+bottom: 0;
 }

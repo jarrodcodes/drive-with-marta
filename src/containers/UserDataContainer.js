@@ -21,17 +21,19 @@ class UserDataContainer extends Component {
         })
     }
 
-    componentWillReceiveProps(currentProps, nextProps) {
+    componentWillReceiveProps(currentProps) {
         let self = this;
-        self.props.fetchDrivingTimeToNearestStation(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude, currentProps.ClosestStationToUser.ClosestStationToUser.stationAddress)
+        if (!currentProps.DrivingTimeToPrimaryStation.DrivingTimeToNearestStation) {
+            self.props.fetchDrivingTimeToNearestStation(self.state.userLocation.coords.latitude, self.state.userLocation.coords.longitude, currentProps.ClosestStationToUser.ClosestStationToUser.stationAddress)
+        }
     }
 
     render() {
         let self = this;
-         console.log(self.props, 'app props')
+
         return (
             <div>
-                <UserDataViewer {...self.props} />
+                <UserDataViewer className="loader" {...self.props} />
                 {
                     this.state.Loading === false && this.state.userLocation &&
                     <Maps location={this.state.userLocation} />

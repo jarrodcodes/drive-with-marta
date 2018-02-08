@@ -4,6 +4,7 @@ import TravelResultHybrid from './travelresulthybrid.js';
 import '../userdataviewer.css';
 import TravelResultMarta from './travelresultmarta.js';
 import TravelGuide from './travelguide.js';
+import OverlayLoader from 'react-overlay-loading/lib/OverlayLoader'
 
 class UserDataViewer extends Component {
 
@@ -12,6 +13,25 @@ class UserDataViewer extends Component {
         let self = this;
         // console.log('I am UserDataViewer state', self.state);
         //console.log('I am UserDataViewer props', self.props);
+
+        if (self.props.DriveTimeToDestination.DriveTimeToDestination) {
+            if (self.props.DriveTimeToDestination.DriveTimeToDestination[0]) {
+                if (self.props.DriveTimeToDestination.DriveTimeToDestination[0].routes[0].legs[0].distance.value < 1609.34) {
+                    return (
+                        <div>
+                            <h1 className="results-text">
+                                No need! You can just walk!
+</h1>
+                            <div className="card-deck">
+                                <TravelResultCar {...self.props.DriveTimeToDestination} name={'Walking only'} />
+                                <TravelResultHybrid {...self.props} go={"no"} walk={"yes"} name={'Smarta-Commute Solution'} />
+                                <TravelResultMarta {...self.props} go={"no"} walk={"yes"} name={'MARTA Only'} />
+                            </div>
+                        </div>
+                    )
+                }
+            }
+        }
 
         if (self.props.MartaTravelTimePrimary[0]) {
             if (self.props.MartaTravelTimePrimary[0][0]) {
@@ -24,8 +44,8 @@ class UserDataViewer extends Component {
 
                                         return (
                                             <div>
-                                                <h1>
-                                                    Darn. Your location is too far from MARTA.
+                                                <h1 className="results-text">
+                                                    Darn. Your destination is too far from MARTA.
 </h1>
                                                 <div className="card-deck">
                                                     <TravelResultCar {...self.props.DriveTimeToDestination} name={'Car Only'} />
@@ -43,13 +63,13 @@ class UserDataViewer extends Component {
                                         if ((smarta1 + smarta2) - driveTime > 900) {
                                             return (
                                                 <div>
-                                                    <h5 className="results-text">
+                                                    <h1 className="results-text">
                                                         Based on our calculations, you should just drive. MARTA would take at least 15 minutes longer.
-    </h5>
+</h1>
                                                     <div className="card-deck">
                                                         <TravelResultCar {...self.props.DriveTimeToDestination} name={'Car Only'} />
-                                                        <TravelResultHybrid {...self.props} name={'Smarta-Commute Solution'} />
-                                                        <TravelResultMarta {...self.props} name={'MARTA Only'} />
+                                                        <TravelResultHybrid {...self.props} slow = {"yes"} go={"no"} name={'Smarta-Commute Solution'} />
+                                                        <TravelResultMarta {...self.props} go={"no"} slow = {"yes"} name={'MARTA Only'} />
                                                     </div>
                                                 </div>
                                             )
@@ -57,13 +77,17 @@ class UserDataViewer extends Component {
                                         else {
                                             return (
                                                 <div>
-                                                    <h5 className="results-text">
-                                                        First, drive to {stationView}. Then ride the train.
+                                                    <h1 className = "results-text">
+
+                                                        Success! You can get there in no time!
+            </h1>
+                                                    <h5 className = "results-text">
+                                                        First, drive to {stationView}. Then take the train.
 </h5>
                                                     <div className="card-deck">
-                                                        <TravelResultCar {...self.props.DriveTimeToDestination} name={'Car Only'} />
+                                                        <TravelResultCar {...self.props.DriveTimeToDestination} go={"no"} name={'Car Only'} />
                                                         <TravelResultHybrid {...self.props} name={'Smarta-Commute Solution'} />
-                                                        <TravelResultMarta {...self.props} name={'MARTA Only'} />
+                                                        <TravelResultMarta {...self.props} go={"red"} name={'MARTA Only'} />
                                                     </div>
                                                 </div>
                                             )
@@ -72,41 +96,71 @@ class UserDataViewer extends Component {
                                 }
                                 else {
                                     return (
-                                        <h1 className="Loading">
-                                            "Loading..."
-</h1>
+                                        <OverlayLoader className="loader"
+                                            color={'white'} // default is white
+                                            loader="ScaleLoader" // check below for more loaders
+                                            text="Loading... Please wait!"
+                                            active={true}
+                                            backgroundColor={'black'} // default is black
+                                            opacity="1" // default is .9  
+                                        >
+                                        </OverlayLoader>
                                     )
                                 }
                             }
                             else {
                                 return (
-                                    <h1 className="Loading">
-                                        "Loading..."
-</h1>
+                                    <OverlayLoader className="loader"
+                                        color={'white'} // default is white
+                                        loader="ScaleLoader" // check below for more loaders
+                                        text="Loading... Please wait!"
+                                        active={true}
+                                        backgroundColor={'black'} // default is black
+                                        opacity="1" // default is .9  
+                                    >
+                                    </OverlayLoader>
                                 )
                             }
                         }
                         else {
                             return (
-                                <h1 className="Loading">
-                                    "Loading..."
-</h1>
+                                <OverlayLoader className="loader"
+                                    color={'white'} // default is white
+                                    loader="ScaleLoader" // check below for more loaders
+                                    text="Loading... Please wait!"
+                                    active={true}
+                                    backgroundColor={'black'} // default is black
+                                    opacity="1" // default is .9  
+                                >
+                                </OverlayLoader>
                             )
                         }
                     }
                     else {
                         return (
-                            <h1 className="Loading">
-                                "Loading..."
-</h1>
+                            <OverlayLoader className="loader"
+                                color={'white'} // default is white
+                                loader="ScaleLoader" // check below for more loaders
+                                text="Loading... Please wait!"
+                                active={true}
+                                backgroundColor={'black'} // default is black
+                                opacity="1" // default is .9  
+                            >
+                            </OverlayLoader>
                         )
                     }
                 }
                 else {
                     return (
-                        <h1 className="Loading">
-                            "Loading..."
-</h1>
+                        <OverlayLoader className="loader"
+                            color={'white'} // default is white
+                            loader="ScaleLoader" // check below for more loaders
+                            text="Loading... Please wait!"
+                            active={true}
+                            backgroundColor={'black'} // default is black
+                            opacity="1" // default is .9  
+                        >
+                        </OverlayLoader>
                     )
                 }
             }

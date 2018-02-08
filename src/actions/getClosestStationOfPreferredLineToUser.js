@@ -11,6 +11,7 @@ let stationList = [];
 let stationPlacesList = [];
 let stationDriveTime = [];
 let closestStationOfPreferredLineToUser = [];
+let stationsWithParking = [];
 
 export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor, destination) {
     return (dispatch, getState) => {
@@ -24,9 +25,15 @@ export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, st
                 let destinationRepeat = destination;
                 axios.get('http://localhost:3000/' + stationColor).then((stations) => {
                     stationList.push(stations)
-                }).then(() => {
-                    for (i = 0; i < stationList[0].data.length; i++) {
-                        stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
+                    console.log(stationList, "stationlist")
+                })
+                .then(() => {
+                stationsWithParking = _.filter(stationList[0].data, ['parking', true]);
+                console.log(stationsWithParking, "parking")
+                })
+                .then(() => {
+                    for (i = 0; i < stationsWithParking.length; i++) {
+                        stationPlacesList.push({ placeId: stationsWithParking[i].placeID + '' })
                     }
                 }).then(() => {
                     let origin = new google.maps.LatLng(latitude, longitude);
@@ -37,7 +44,7 @@ export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, st
                             travelMode: 'DRIVING',
                         }, callback);
                     function callback(response, status) {
-                        console.log(status, "preferred station")
+                        console.log(response, "station response")
                         if (status === 'OK') {
                             stationDriveTime = response.destinationAddresses.map(function (item, index) {
                                 return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };

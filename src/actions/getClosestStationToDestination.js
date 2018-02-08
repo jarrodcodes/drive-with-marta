@@ -34,7 +34,6 @@ export function fetchClosestStationtoDestination(destination) {
                 }, callback);
             function callback(response, status) {
                 if (status === 'OK') {
-                    console.log(response, "station responses")
                     stationWalkTime = response.destinationAddresses.map(function (item, index) {
                         return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
                     });

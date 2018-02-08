@@ -11,12 +11,12 @@ export function fetchColorOfSecondaryStation(primaryDirections, latitude, longit
         let i = 0
         let destinationRepeat = destination;
         
-        if (primaryDirections != "BUS_PRESENT") {
+        if (true) {
             let steps = primaryDirections[0].routes[0].legs[0].steps
             for (i; i < steps.length; i++) {
                 stepsInstructions.push(steps[i].instructions)
             }
-
+            console.log(stepsInstructions, "instructions")
             let stationColors = stepsInstructions.filter(s => s.includes("Blue") || s.includes("Green") || s.includes("Red") || s.includes("Gold"))
             let stationColor = _.last(stationColors)
             //if no line color is present, user only has Bus/walking directions, no need to continue
