@@ -10,7 +10,7 @@ export function fetchDrivingTimeToSecondaryStation(latitude, longitude, station,
         // avoid Google limits
         let millisecondsToWait = 1000;
         setTimeout(function () {
-
+            console.log(station, "stationDATA")
             let destinationRepeat = destination;
             let directionsService = new google.maps.DirectionsService();
             let driveTime = [];

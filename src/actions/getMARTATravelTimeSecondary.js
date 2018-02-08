@@ -6,7 +6,7 @@ export function fetchMARTATimeSecondary(station, destination, drivingTimeToStati
 
     return (dispatch, getState) => {
 
-        let millisecondsToWait = 2000;
+        let millisecondsToWait = 7000;
 
         setTimeout(function () {
 

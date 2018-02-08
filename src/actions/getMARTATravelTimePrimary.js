@@ -5,7 +5,12 @@ export const getMARTATravelTimePrimary = 'getMARTATravelTimePrimary';
 let google = window.google;
 
 export function fetchMARTATimePrimary(station, destination, drivingTimeToStation, latitude, longitude) {
+
     return (dispatch, getState) => {
+
+        let millisecondsToWait = 500;
+
+        setTimeout(function () {
 
         let directionsService = new google.maps.DirectionsService();
         let currentTime = new Date().getTime();
@@ -35,7 +40,8 @@ export function fetchMARTATimePrimary(station, destination, drivingTimeToStation
                 dispatch(fetchColorOfSecondaryStation(martaTime, latitude, longitude, destination))
             }
         });
-    }
+    }, millisecondsToWait)
+}
 }
 
 export function updateMARTATimePrimary(martaTime) {

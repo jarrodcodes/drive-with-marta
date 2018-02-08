@@ -64,9 +64,7 @@ export function fetchClosestStationtoDestination(destination) {
                     bothWalkTimes = _.sortBy(bothWalkTimes, ['distance'])
                     closestStationToDestination = bothWalkTimes[0]
                     // determine if closest MARTA station to user's destination is too far to walk, the assume max distance someone would want to walk is a mile both ways
-                    if (closestStationToDestination.distance > 1610) {
-                        closestStationToDestination = ["TOO_FAR"]
-                    }
+
                     dispatch(updateClosestStationtoDestination(closestStationToDestination));
                 }
             })

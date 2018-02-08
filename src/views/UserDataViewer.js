@@ -3,12 +3,12 @@ import TravelResultCar from './travelresultcar.js';
 import TravelResultHybrid from './travelresulthybrid.js';
 import '../userdataviewer.css';
 import TravelResultMarta from './travelresultmarta.js';
-
+import TravelGuide from './travelguide.js';
 
 class UserDataViewer extends Component {
 
     render() {
-
+        let google = window.google;
         let self = this;
         // console.log('I am UserDataViewer state', self.state);
         //console.log('I am UserDataViewer props', self.props);
@@ -19,16 +19,45 @@ class UserDataViewer extends Component {
                     if (self.props.DriveTimeToDestination.DriveTimeToDestination[0]) {
                         if (self.props.MartaTravelTimeSecondary[0]) {
                             if (self.props.MartaTravelTimeSecondary[0][0]) {
+                                if (self.props.MARTAOnlyTime.MARTAOnlyTime[0]) {
+                                    if (self.props.ClosestStationToDestination.ClosestStationToDestination.distance > 1609.34) {
 
-                                return (
-                                    <div className="card-deck">
-                                    <h3>
-                                        </h3>
-                                    <TravelResultCar {...self.props.DriveTimeToDestination} name={'Travel Time By Car'} />
-                                    <TravelResultHybrid {...self.props} name={'If you first drive to Marta, then take the train)'} />
-                                    <TravelResultMarta {...self.props} name={'Travel Time By Marta (Including the bus)'} />
-                                    </div>
-                                )
+                                        return (
+                                            <div>
+                                                <h1>
+                                                    Darn. Your location is too far from MARTA.
+        </h1>
+                                                <div className="card-deck">
+                                                    <TravelResultCar {...self.props.DriveTimeToDestination} name={'Travel Time By Car'} />
+                                                    <TravelResultHybrid {...self.props} go={"no"} name={'If you first drive to Marta, then take the train)'} />
+                                                    <TravelResultMarta {...self.props} go={"no"} name={'Travel Time By Marta (Including the bus)'} />
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                    else {
+
+                                        return (
+                                            <div>
+                                            <h1>
+                                                First, drive to {self.props.ClosestStationOfPreferredLineToUser.ClosestStationOfPreferredLineToUser.stationAddress}. Then ride the train.
+                                                </h1>
+                                            <div className="card-deck">
+                                                <TravelResultCar {...self.props.DriveTimeToDestination} name={'Travel Time By Car'} />
+                                                <TravelResultHybrid {...self.props} name={'If you first drive to Marta, then take the train)'} />
+                                                <TravelResultMarta {...self.props} name={'Travel Time By Marta (Including the bus)'} />
+                                            </div>
+                                            </div>
+                                        )
+                                    }
+                                }
+                                else {
+                                    return (
+                                        <h1 className="Loading">
+                                            "Loading..."
+</h1>
+                                    )
+                                }
                             }
                             else {
                                 return (
@@ -45,7 +74,6 @@ class UserDataViewer extends Component {
 </h1>
                             )
                         }
-
                     }
                     else {
                         return (
@@ -54,7 +82,13 @@ class UserDataViewer extends Component {
 </h1>
                         )
                     }
-
+                }
+                else {
+                    return (
+                        <h1 className="Loading">
+                            "Loading..."
+</h1>
+                    )
                 }
             }
         }

@@ -51,7 +51,9 @@ function mapStateToProps(state) {
         DrivingTimeToPrimaryStation: state.DrivingTimeToPrimaryStation,
         DrivingTimeToSecondaryStation: state.DrivingTimeToSecondaryStation,
         MartaTravelTimePrimary: state.MartaTravelTimePrimary,
-        MartaTravelTimeSecondary: state.MartaTravelTimeSecondary
+        MartaTravelTimeSecondary: state.MartaTravelTimeSecondary,
+        MARTAOnlyTime: state.MARTAOnlyTime,
+        ClosestStationOfPreferredLineToUser: state.ClosestStationOfPreferredLineToUser
     };
 }
 

@@ -14,39 +14,46 @@ let closestStationOfPreferredLineToUser = [];
 
 export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor, destination) {
     return (dispatch, getState) => {
-        // check if user only has walking/bus directions
-        if (stationColor != "none") {
-            let destinationRepeat = destination;
-            axios.get('http://localhost:3000/' + stationColor).then((stations) => {
-                stationList.push(stations)
-            }).then(() => {
-                for (i = 0; i < stationList[0].data.length; i++) {
-                    stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
-                }
-            }).then(() => {
-                let origin = new google.maps.LatLng(latitude, longitude);
-                DistanceMatrixService.getDistanceMatrix(
-                    {
-                        origins: [origin],
-                        destinations: stationPlacesList,
-                        travelMode: 'DRIVING',
-                    }, callback);
-                function callback(response, status) {
-                    if (status === 'OK') {
-                        stationDriveTime = response.destinationAddresses.map(function (item, index) {
-                            return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
-                        });
+
+        let millisecondsToWait = 2000;
+
+        setTimeout(function () {
+
+            // check if user only has walking/bus directions
+            if (stationColor != "none") {
+                let destinationRepeat = destination;
+                axios.get('http://localhost:3000/' + stationColor).then((stations) => {
+                    stationList.push(stations)
+                }).then(() => {
+                    for (i = 0; i < stationList[0].data.length; i++) {
+                        stationPlacesList.push({ placeId: stationList[0].data[i].placeID + '' })
                     }
-                    stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
-                    closestStationOfPreferredLineToUser = stationDriveTime[0]
-                    dispatch(updateClosestStationOfPreferredLineToUser(closestStationOfPreferredLineToUser))
-                    dispatch(fetchDrivingTimeToSecondaryStation(latitude, longitude, closestStationOfPreferredLineToUser, destinationRepeat))
-                }
-            })
-        }
-        else {
-            return
-        }
+                }).then(() => {
+                    let origin = new google.maps.LatLng(latitude, longitude);
+                    DistanceMatrixService.getDistanceMatrix(
+                        {
+                            origins: [origin],
+                            destinations: stationPlacesList,
+                            travelMode: 'DRIVING',
+                        }, callback);
+                    function callback(response, status) {
+                        console.log(status, "preferred station")
+                        if (status === 'OK') {
+                            stationDriveTime = response.destinationAddresses.map(function (item, index) {
+                                return { stationAddress: item, distance: response.rows[0].elements[index].duration.value };
+                            });
+                        }
+                        stationDriveTime = _.sortBy(stationDriveTime, ['distance'])
+                        closestStationOfPreferredLineToUser = stationDriveTime[0]
+                        dispatch(updateClosestStationOfPreferredLineToUser(closestStationOfPreferredLineToUser))
+                        dispatch(fetchDrivingTimeToSecondaryStation(latitude, longitude, closestStationOfPreferredLineToUser, destinationRepeat))
+                    }
+                })
+            }
+            else {
+                return
+            }
+        }, millisecondsToWait)
     }
 }
 

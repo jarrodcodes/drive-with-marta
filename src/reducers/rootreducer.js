@@ -8,6 +8,8 @@ import AddUserDrivingTimeToPrimaryStation from './adduserdrivingtimetoprimarysta
 import AddClosestStationToDestination from './addcloseststationtodestination.js';
 import AddMARTATimeSecondary from './addmartatimesecondary.js';
 import AddUserDrivingTimeToSecondaryStation from './adduserdrivingtimetosecondarystation.js';
+import AddMARTAOnlyTime from './addmartaonlytime.js';
+import AddClosestStationOfPreferredLineToUser from './addcloseststationofpreferredlinetouser.js';
 
 const rootReducer = combineReducers({
     GPS: AddUserGPS,
@@ -18,7 +20,9 @@ const rootReducer = combineReducers({
     MartaTravelTimePrimary: AddMARTATimePrimary,
     MartaTravelTimeSecondary: AddMARTATimeSecondary,
     DrivingTimeToPrimaryStation: AddUserDrivingTimeToPrimaryStation,
-    DrivingTimeToSecondaryStation: AddUserDrivingTimeToSecondaryStation
+    DrivingTimeToSecondaryStation: AddUserDrivingTimeToSecondaryStation,
+    MARTAOnlyTime: AddMARTAOnlyTime,
+    ClosestStationOfPreferredLineToUser: AddClosestStationOfPreferredLineToUser
 });
 
 export default rootReducer;

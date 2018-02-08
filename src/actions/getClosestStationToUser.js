@@ -14,6 +14,7 @@ let closestStationToUser = [];
 
 export function fetchClosestStationToUser(latitude, longitude) {
     return (dispatch, getState) => {
+
         axios.get('http://localhost:3000/stationswithparking').then((stations) => {
             stationList.push(stations)
         }).then(() => {
@@ -38,6 +39,7 @@ export function fetchClosestStationToUser(latitude, longitude) {
                 closestStationToUser = stationDriveTime[0]
                 dispatch(updateClosestStationToUser(closestStationToUser))
                 dispatch(fetchDrivingTimeToNearestStation(latitude, longitude, closestStationToUser))
+
             }
         })
     }

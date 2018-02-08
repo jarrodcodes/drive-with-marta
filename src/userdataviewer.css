@@ -8,8 +8,11 @@ color: black;
     text-align: center;
 }
 
-.card-deck{
+.card-deck {
     padding-top: 10px;
     max-width: 90%;
     margin: auto;
+}
+
+.card {
 }
