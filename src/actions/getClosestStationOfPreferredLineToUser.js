@@ -15,7 +15,7 @@ let closestStationOfPreferredLineToUser = [];
 export function fetchClosestStationOfPreferredLineToUser(latitude, longitude, stationColor, destination) {
     return (dispatch, getState) => {
 
-        let millisecondsToWait = 2000;
+        let millisecondsToWait = 3000;
 
         setTimeout(function () {
 

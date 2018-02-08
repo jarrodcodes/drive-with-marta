@@ -26,29 +26,48 @@ class UserDataViewer extends Component {
                                             <div>
                                                 <h1>
                                                     Darn. Your location is too far from MARTA.
-        </h1>
+</h1>
                                                 <div className="card-deck">
-                                                    <TravelResultCar {...self.props.DriveTimeToDestination} name={'Travel Time By Car'} />
-                                                    <TravelResultHybrid {...self.props} go={"no"} name={'If you first drive to Marta, then take the train)'} />
-                                                    <TravelResultMarta {...self.props} go={"no"} name={'Travel Time By Marta (Including the bus)'} />
+                                                    <TravelResultCar {...self.props.DriveTimeToDestination} name={'Car Only'} />
+                                                    <TravelResultHybrid {...self.props} go={"no"} name={'Smarta-Commute Solution'} />
+                                                    <TravelResultMarta {...self.props} go={"no"} name={'MARTA Only'} />
                                                 </div>
                                             </div>
                                         )
                                     }
                                     else {
-
-                                        return (
-                                            <div>
-                                            <h1>
-                                                First, drive to {self.props.ClosestStationOfPreferredLineToUser.ClosestStationOfPreferredLineToUser.stationAddress}. Then ride the train.
-                                                </h1>
-                                            <div className="card-deck">
-                                                <TravelResultCar {...self.props.DriveTimeToDestination} name={'Travel Time By Car'} />
-                                                <TravelResultHybrid {...self.props} name={'If you first drive to Marta, then take the train)'} />
-                                                <TravelResultMarta {...self.props} name={'Travel Time By Marta (Including the bus)'} />
-                                            </div>
-                                            </div>
-                                        )
+                                        let stationView = self.props.ClosestStationOfPreferredLineToUser.ClosestStationOfPreferredLineToUser.stationAddress
+                                        let driveTime = self.props.DriveTimeToDestination.DriveTimeToDestination[0].routes[0].legs[0].duration.value
+                                        let smarta1 = parseInt((self.props.MartaTravelTimeSecondary[0][0].routes[0].legs[0].duration.value))
+                                        let smarta2 = parseInt(self.props.DrivingTimeToSecondaryStation.DrivingTimeToSecondaryStation[0].routes[0].legs[0].duration.value)
+                                        if ((smarta1 + smarta2) - driveTime > 900) {
+                                            return (
+                                                <div>
+                                                    <h5 className="results-text">
+                                                        Based on our calculations, you should just drive. MARTA would take at least 15 minutes longer.
+    </h5>
+                                                    <div className="card-deck">
+                                                        <TravelResultCar {...self.props.DriveTimeToDestination} name={'Car Only'} />
+                                                        <TravelResultHybrid {...self.props} name={'Smarta-Commute Solution'} />
+                                                        <TravelResultMarta {...self.props} name={'MARTA Only'} />
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
+                                        else {
+                                            return (
+                                                <div>
+                                                    <h5 className="results-text">
+                                                        First, drive to {stationView}. Then ride the train.
+</h5>
+                                                    <div className="card-deck">
+                                                        <TravelResultCar {...self.props.DriveTimeToDestination} name={'Car Only'} />
+                                                        <TravelResultHybrid {...self.props} name={'Smarta-Commute Solution'} />
+                                                        <TravelResultMarta {...self.props} name={'MARTA Only'} />
+                                                    </div>
+                                                </div>
+                                            )
+                                        }
                                     }
                                 }
                                 else {
