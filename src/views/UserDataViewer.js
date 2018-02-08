@@ -174,7 +174,7 @@ class UserDataViewer extends Component {
                         Welcome to Smarta Commute!
 </h1>
                     <h5>
-                        Smarta Commute helps you solve that mystery we always ponder in Atlanta: How should I travel today?
+                        Smarta Commute helps you figure out if you should ride MARTA or drive.
 </h5>
                     <h6>
                         Enter in your destination. And this time, you'll travel smarta.

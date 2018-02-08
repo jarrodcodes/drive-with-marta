@@ -1,6 +1,6 @@
     import React, { Component } from 'react';
     import UserDataContainer from './containers/UserDataContainer.js';
-    import About from './containers/about.js';
+    import About from './containers/About.js';
     import {
       BrowserRouter as Router,
       Route,

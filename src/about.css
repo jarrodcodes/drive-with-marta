@@ -1,4 +1,9 @@
 * {
     font-family: Helvetica;
-    text-align: center;
+}
+ul {
+    margin-top: 10px;
+}
+li {
+    margin-top: 10px;
 }
